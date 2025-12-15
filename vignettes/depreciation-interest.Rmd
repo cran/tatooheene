@@ -1,0 +1,115 @@
+---
+title: "Depreciation & interest for medical equipment"
+author: "The tatooheene team"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    number_sections: false
+vignette: >
+  %\VignetteIndexEntry{Depreciation & interest for medical equipment}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, comment = "#>", fig.width = 7, fig.height = 4, dpi = 120
+)
+library(tatooheene)
+```
+
+## What this vignette covers
+
+-   The formula and meaning of the annuity factor and the annual depreciation and interest charge.
+-   How to call `depreciation_interest()` and interpret its outputs.
+-   Edge cases: zero interest rate and validation checks.
+
+## Background & formulas
+
+Let:
+
+- $k$ = annual depreciation and interest costs,
+- $V$ = replacement value,
+- $R$ = residual value at end of period,
+- $n$ = depreciation period (years),
+- $i$ = annual interest rate (decimal),
+- $a_{n,i}$ = annuity factor.
+
+
+Annual depreciation + interest:
+
+$k = \frac{V - \frac{R}{(1 + i)^N}}{a_{n,i}}$.
+
+Annuity factor:
+
+$a_{n,i} = \frac{1}{i}*\bigg(1-\frac{1}{(1 + i)^{n}}\bigg)$.
+
+## Quick starts
+
+Default (returns a data frame)
+
+```{r default}
+depreciation_interest(
+  v_replace_val = 50000, # replacement value 
+  r_salvage_val = 5000   # salvage value at end of period 
+)
+```
+
+Only the annuity factor
+
+```{r annuity-only}
+depreciation_interest(
+  v_replace_val = 50000,
+  r_salvage_val = 5000,
+  output = "annuity_factor"
+)
+```
+
+Only the annual cost (k)
+
+```{r annual-only}
+depreciation_interest(
+  v_replace_val = 50000,
+  r_salvage_val = 5000,
+  output = "annual_cost"
+)
+```
+
+## Zero‑interest edge case
+
+When $i$ = 0, the function uses the mathematical limit:
+
+- $a = n$,
+- $k = (V - R)/n$.
+
+```{r zero-interest}
+depreciation_interest(
+  v_replace_val = 50000,
+  r_salvage_val = 5000,
+  n_amortisation_period = 8,
+  i_interest_rt = 0,
+  output = "dataframe"
+)
+```
+
+## Input validation & common messages
+
+-   `v_replace_val` must be a single positive number; `r_salvage_val` a
+    non‑negative number.
+-   `n_amortisation_period` must be \> 0; `i_interest_rt` must be ≥ 0.
+-   If salvage value exceeds replacement value, a warning is raised
+    (allowed, but uncommon).
+
+Example (triggers an error):
+
+```{r errors, error=TRUE}
+depreciation_interest(
+  v_replace_val = 50000,
+  r_salvage_val = -1
+)
+```

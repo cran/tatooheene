@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="tatooheene team" />
+
+<meta name="date" content="2025-12-15" />
+
+<title>Reference prices: lookups by domain/category/unit &amp; years (table vs single value)</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Reference prices: lookups by
+domain/category/unit &amp; years (table vs single value)</h1>
+<h4 class="author">tatooheene team</h4>
+<h4 class="date">2025-12-15</h4>
+
+
+<div id="TOC">
+<ul>
+<li><a href="#what-this-vignette-covers" id="toc-what-this-vignette-covers">What this vignette covers</a></li>
+<li><a href="#the-underlying-data" id="toc-the-underlying-data">The
+underlying data</a></li>
+<li><a href="#quick-starts" id="toc-quick-starts">Quick starts</a>
+<ul>
+<li><a href="#default-all-filters-all---table-of-all-reference-prices-over-all-years" id="toc-default-all-filters-all---table-of-all-reference-prices-over-all-years">1)
+Default: all filters = “all” -&gt; table of all reference prices over
+all years</a></li>
+<li><a href="#specific-year-unit---single-value" id="toc-specific-year-unit---single-value">2) Specific
+<strong>year</strong>* &amp; <strong>unit</strong> -&gt; single
+value</a></li>
+<li><a href="#years-values-for-a-range-of-years" id="toc-years-values-for-a-range-of-years">3) Years values for a range
+of years</a></li>
+<li><a href="#multiple-selections-return-multiple-columns" id="toc-multiple-selections-return-multiple-columns">4) Multiple
+selections return multiple columns</a></li>
+</ul></li>
+<li><a href="#error-messages-you-might-see" id="toc-error-messages-you-might-see">Error messages you might
+see</a></li>
+</ul>
+</div>
+
+<div id="what-this-vignette-covers" class="section level2">
+<h2>What this vignette covers</h2>
+<ul>
+<li><p>Where the reference prices live:
+tatooheene::df_ref_prices.</p></li>
+<li><p>How to use nl_ref_prices() to:</p>
+<ul>
+<li><p>filter by <strong>domain, category, unit,
+short_unit</strong></p></li>
+<li><p>select <strong>one or multiple years</strong> (e.g., 2022 or c
+(2022, 2023) ),</p></li>
+<li><p>choose <strong>currency</strong> (“EUR” or “INT$”; PPP adjusted),
+and</p></li>
+<li><p>return either a <strong>table</strong> or a <strong>single
+numeric value</strong> (with a printed label).</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>The function is . Column names reflect the CBS table embedded in
+<code>df_ref_prices</code>.</p>
+</blockquote>
+</div>
+<div id="the-underlying-data" class="section level2">
+<h2>The underlying data</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>df_ref_prices <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt;    Domain       Category</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; 1 Medical        Nursing</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; 2 Medical        Nursing</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; 3 Medical        Nursing</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; 4 Medical Day treatments</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; 5 Medical Day treatments</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; 6 Medical Day treatments</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt;                                                             Unit</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; 1                Nursing day excluding personnel costs, hospital</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; 2                Nursing day including personnel costs, hospital</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; 3 Nursing day, intensive care (incl. diagnostics and medication)</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; 4                                        Day treatment, hospital</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; 5                           Intravenous administration, hospital</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; 6                          Subcutaneous administration, hospital</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt;                   short_var    2022       2023       2024</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt; 1 nursingday_excl_personnel  537.00  557.40600  576.20100</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt; 2 nursingday_incl_personnel  644.00  668.47200  691.01200</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="co">#&gt; 3  nursingday_intensivecare 2727.00 2830.62600 2926.07100</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#&gt; 4     daytreatment_hospital  335.00  347.73000  359.45500</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#&gt; 5         iv_admin_hospital  171.00  177.49800  183.48300</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co">#&gt; 6         sc_admin_hospital   75.28   78.14064   80.77544</span></span></code></pre></div>
+</div>
+<div id="quick-starts" class="section level2">
+<h2>Quick starts</h2>
+<div id="default-all-filters-all---table-of-all-reference-prices-over-all-years" class="section level3">
+<h3>1) Default: all filters = “all” -&gt; table of all reference prices
+over all years</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">nl_ref_prices</span>()</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt;                   Domain                        Category</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt; 1                Medical                         Nursing</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; 2                Medical                         Nursing</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; 3                Medical                         Nursing</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; 4                Medical                  Day treatments</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; 5                Medical                  Day treatments</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; 6                Medical                  Day treatments</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; 7                Medical               Outpatient visits</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; 8                Medical                  Emergency care</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; 9                Medical             Ambulance transport</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; 10               Medical             Ambulance transport</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; 11               Medical             Ambulance transport</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; 12               Medical              Medical procedures</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; 13               Medical              Medical procedures</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt; 14               Medical                     Diagnostics</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt; 15               Medical                     Diagnostics</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; 16               Medical                     Diagnostics</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; 17               Medical                     Diagnostics</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; 18               Medical                     Diagnostics</span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt; 19               Medical                     Diagnostics</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt; 20               Medical                     Diagnostics</span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt; 21               Medical                     Diagnostics</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt; 22               Medical                     Diagnostics</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt; 23               Medical                     Diagnostics</span></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt; 24               Medical                     Diagnostics</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="co">#&gt; 25               Medical                     Diagnostics</span></span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co">#&gt; 26               Medical                     Diagnostics</span></span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co">#&gt; 27               Medical                     Diagnostics</span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt; 28               Medical                     Diagnostics</span></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="co">#&gt; 29               Medical                     Diagnostics</span></span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="co">#&gt; 30               Medical                     Diagnostics</span></span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="co">#&gt; 31               Medical                     Diagnostics</span></span>
+<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a><span class="co">#&gt; 32               Medical                     Diagnostics</span></span>
+<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a><span class="co">#&gt; 33               Medical                     Diagnostics</span></span>
+<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a><span class="co">#&gt; 34               Medical                     Diagnostics</span></span>
+<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a><span class="co">#&gt; 35               Medical                     Diagnostics</span></span>
+<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a><span class="co">#&gt; 36               Medical                     Diagnostics</span></span>
+<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a><span class="co">#&gt; 37               Medical                     Diagnostics</span></span>
+<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a><span class="co">#&gt; 38               Medical                     Diagnostics</span></span>
+<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="co">#&gt; 39               Medical                     Diagnostics</span></span>
+<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a><span class="co">#&gt; 40               Medical                     Diagnostics</span></span>
+<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="co">#&gt; 41               Medical                     Diagnostics</span></span>
+<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a><span class="co">#&gt; 42               Medical                     Diagnostics</span></span>
+<span id="cb2-45"><a href="#cb2-45" tabindex="-1"></a><span class="co">#&gt; 43               Medical                     Diagnostics</span></span>
+<span id="cb2-46"><a href="#cb2-46" tabindex="-1"></a><span class="co">#&gt; 44               Medical                     Diagnostics</span></span>
+<span id="cb2-47"><a href="#cb2-47" tabindex="-1"></a><span class="co">#&gt; 45               Medical                     Diagnostics</span></span>
+<span id="cb2-48"><a href="#cb2-48" tabindex="-1"></a><span class="co">#&gt; 46               Medical                     Diagnostics</span></span>
+<span id="cb2-49"><a href="#cb2-49" tabindex="-1"></a><span class="co">#&gt; 47               Medical                     Diagnostics</span></span>
+<span id="cb2-50"><a href="#cb2-50" tabindex="-1"></a><span class="co">#&gt; 48               Medical                    Medical aids</span></span>
+<span id="cb2-51"><a href="#cb2-51" tabindex="-1"></a><span class="co">#&gt; 49               Medical                    Medical aids</span></span>
+<span id="cb2-52"><a href="#cb2-52" tabindex="-1"></a><span class="co">#&gt; 50               Medical                    Medical aids</span></span>
+<span id="cb2-53"><a href="#cb2-53" tabindex="-1"></a><span class="co">#&gt; 51               Medical                    Medical aids</span></span>
+<span id="cb2-54"><a href="#cb2-54" tabindex="-1"></a><span class="co">#&gt; 52               Medical                    Medical aids</span></span>
+<span id="cb2-55"><a href="#cb2-55" tabindex="-1"></a><span class="co">#&gt; 53               Medical                    Medical aids</span></span>
+<span id="cb2-56"><a href="#cb2-56" tabindex="-1"></a><span class="co">#&gt; 54               Medical                    Medical aids</span></span>
+<span id="cb2-57"><a href="#cb2-57" tabindex="-1"></a><span class="co">#&gt; 55               Medical                    Medical aids</span></span>
+<span id="cb2-58"><a href="#cb2-58" tabindex="-1"></a><span class="co">#&gt; 56               Medical                    Medical aids</span></span>
+<span id="cb2-59"><a href="#cb2-59" tabindex="-1"></a><span class="co">#&gt; 57               Medical                    Medical aids</span></span>
+<span id="cb2-60"><a href="#cb2-60" tabindex="-1"></a><span class="co">#&gt; 58               Medical                GP consultations</span></span>
+<span id="cb2-61"><a href="#cb2-61" tabindex="-1"></a><span class="co">#&gt; 59               Medical                GP consultations</span></span>
+<span id="cb2-62"><a href="#cb2-62" tabindex="-1"></a><span class="co">#&gt; 60               Medical                GP consultations</span></span>
+<span id="cb2-63"><a href="#cb2-63" tabindex="-1"></a><span class="co">#&gt; 61               Medical                GP consultations</span></span>
+<span id="cb2-64"><a href="#cb2-64" tabindex="-1"></a><span class="co">#&gt; 62               Medical                GP consultations</span></span>
+<span id="cb2-65"><a href="#cb2-65" tabindex="-1"></a><span class="co">#&gt; 63               Medical                GP consultations</span></span>
+<span id="cb2-66"><a href="#cb2-66" tabindex="-1"></a><span class="co">#&gt; 64               Medical                Paramedical care</span></span>
+<span id="cb2-67"><a href="#cb2-67" tabindex="-1"></a><span class="co">#&gt; 65               Medical                Paramedical care</span></span>
+<span id="cb2-68"><a href="#cb2-68" tabindex="-1"></a><span class="co">#&gt; 66               Medical                Paramedical care</span></span>
+<span id="cb2-69"><a href="#cb2-69" tabindex="-1"></a><span class="co">#&gt; 67               Medical                Paramedical care</span></span>
+<span id="cb2-70"><a href="#cb2-70" tabindex="-1"></a><span class="co">#&gt; 68               Medical                Paramedical care</span></span>
+<span id="cb2-71"><a href="#cb2-71" tabindex="-1"></a><span class="co">#&gt; 69               Medical                Paramedical care</span></span>
+<span id="cb2-72"><a href="#cb2-72" tabindex="-1"></a><span class="co">#&gt; 70               Medical                Paramedical care</span></span>
+<span id="cb2-73"><a href="#cb2-73" tabindex="-1"></a><span class="co">#&gt; 71               Medical                    Elderly care</span></span>
+<span id="cb2-74"><a href="#cb2-74" tabindex="-1"></a><span class="co">#&gt; 72               Medical                    Elderly care</span></span>
+<span id="cb2-75"><a href="#cb2-75" tabindex="-1"></a><span class="co">#&gt; 73               Medical                    Elderly care</span></span>
+<span id="cb2-76"><a href="#cb2-76" tabindex="-1"></a><span class="co">#&gt; 74               Medical                    Elderly care</span></span>
+<span id="cb2-77"><a href="#cb2-77" tabindex="-1"></a><span class="co">#&gt; 75               Medical                    Elderly care</span></span>
+<span id="cb2-78"><a href="#cb2-78" tabindex="-1"></a><span class="co">#&gt; 76               Medical                    Elderly care</span></span>
+<span id="cb2-79"><a href="#cb2-79" tabindex="-1"></a><span class="co">#&gt; 77               Medical                    Elderly care</span></span>
+<span id="cb2-80"><a href="#cb2-80" tabindex="-1"></a><span class="co">#&gt; 78               Medical                       Home care</span></span>
+<span id="cb2-81"><a href="#cb2-81" tabindex="-1"></a><span class="co">#&gt; 79               Medical                       Home care</span></span>
+<span id="cb2-82"><a href="#cb2-82" tabindex="-1"></a><span class="co">#&gt; 80               Medical                       Home care</span></span>
+<span id="cb2-83"><a href="#cb2-83" tabindex="-1"></a><span class="co">#&gt; 81               Medical                       Home care</span></span>
+<span id="cb2-84"><a href="#cb2-84" tabindex="-1"></a><span class="co">#&gt; 82               Medical                       Home care</span></span>
+<span id="cb2-85"><a href="#cb2-85" tabindex="-1"></a><span class="co">#&gt; 83               Medical                       Home care</span></span>
+<span id="cb2-86"><a href="#cb2-86" tabindex="-1"></a><span class="co">#&gt; 84               Medical              Mental health care</span></span>
+<span id="cb2-87"><a href="#cb2-87" tabindex="-1"></a><span class="co">#&gt; 85               Medical              Mental health care</span></span>
+<span id="cb2-88"><a href="#cb2-88" tabindex="-1"></a><span class="co">#&gt; 86               Medical              Mental health care</span></span>
+<span id="cb2-89"><a href="#cb2-89" tabindex="-1"></a><span class="co">#&gt; 87               Medical                       Home care</span></span>
+<span id="cb2-90"><a href="#cb2-90" tabindex="-1"></a><span class="co">#&gt; 88               Medical                       Home care</span></span>
+<span id="cb2-91"><a href="#cb2-91" tabindex="-1"></a><span class="co">#&gt; 89               Medical                       Home care</span></span>
+<span id="cb2-92"><a href="#cb2-92" tabindex="-1"></a><span class="co">#&gt; 90               Medical              Mental health care</span></span>
+<span id="cb2-93"><a href="#cb2-93" tabindex="-1"></a><span class="co">#&gt; 91               Medical              Mental health care</span></span>
+<span id="cb2-94"><a href="#cb2-94" tabindex="-1"></a><span class="co">#&gt; 92               Medical              Mental health care</span></span>
+<span id="cb2-95"><a href="#cb2-95" tabindex="-1"></a><span class="co">#&gt; 93               Medical              Mental health care</span></span>
+<span id="cb2-96"><a href="#cb2-96" tabindex="-1"></a><span class="co">#&gt; 94               Medical              Mental health care</span></span>
+<span id="cb2-97"><a href="#cb2-97" tabindex="-1"></a><span class="co">#&gt; 95               Medical              Mental health care</span></span>
+<span id="cb2-98"><a href="#cb2-98" tabindex="-1"></a><span class="co">#&gt; 96               Medical              Mental health care</span></span>
+<span id="cb2-99"><a href="#cb2-99" tabindex="-1"></a><span class="co">#&gt; 97               Medical              Mental health care</span></span>
+<span id="cb2-100"><a href="#cb2-100" tabindex="-1"></a><span class="co">#&gt; 98               Medical              Mental health care</span></span>
+<span id="cb2-101"><a href="#cb2-101" tabindex="-1"></a><span class="co">#&gt; 99               Medical              Mental health care</span></span>
+<span id="cb2-102"><a href="#cb2-102" tabindex="-1"></a><span class="co">#&gt; 100              Medical             Rehabilitation care</span></span>
+<span id="cb2-103"><a href="#cb2-103" tabindex="-1"></a><span class="co">#&gt; 101              Medical             Rehabilitation care</span></span>
+<span id="cb2-104"><a href="#cb2-104" tabindex="-1"></a><span class="co">#&gt; 102              Medical             Rehabilitation care</span></span>
+<span id="cb2-105"><a href="#cb2-105" tabindex="-1"></a><span class="co">#&gt; 103              Medical             Rehabilitation care</span></span>
+<span id="cb2-106"><a href="#cb2-106" tabindex="-1"></a><span class="co">#&gt; 104              Medical             Rehabilitation care</span></span>
+<span id="cb2-107"><a href="#cb2-107" tabindex="-1"></a><span class="co">#&gt; 105              Medical             Rehabilitation care</span></span>
+<span id="cb2-108"><a href="#cb2-108" tabindex="-1"></a><span class="co">#&gt; 106              Medical                 Disability care</span></span>
+<span id="cb2-109"><a href="#cb2-109" tabindex="-1"></a><span class="co">#&gt; 107              Medical                 Disability care</span></span>
+<span id="cb2-110"><a href="#cb2-110" tabindex="-1"></a><span class="co">#&gt; 108              Medical                 Disability care</span></span>
+<span id="cb2-111"><a href="#cb2-111" tabindex="-1"></a><span class="co">#&gt; 109              Medical                 Disability care</span></span>
+<span id="cb2-112"><a href="#cb2-112" tabindex="-1"></a><span class="co">#&gt; 110              Medical                 Disability care</span></span>
+<span id="cb2-113"><a href="#cb2-113" tabindex="-1"></a><span class="co">#&gt; 111              Medical                 Disability care</span></span>
+<span id="cb2-114"><a href="#cb2-114" tabindex="-1"></a><span class="co">#&gt; 112              Medical                 Disability care</span></span>
+<span id="cb2-115"><a href="#cb2-115" tabindex="-1"></a><span class="co">#&gt; 113              Medical                 Disability care</span></span>
+<span id="cb2-116"><a href="#cb2-116" tabindex="-1"></a><span class="co">#&gt; 114              Medical                 Disability care</span></span>
+<span id="cb2-117"><a href="#cb2-117" tabindex="-1"></a><span class="co">#&gt; 115              Medical                 Disability care</span></span>
+<span id="cb2-118"><a href="#cb2-118" tabindex="-1"></a><span class="co">#&gt; 116              Medical                      Medication</span></span>
+<span id="cb2-119"><a href="#cb2-119" tabindex="-1"></a><span class="co">#&gt; 117              Patient                  Transportation</span></span>
+<span id="cb2-120"><a href="#cb2-120" tabindex="-1"></a><span class="co">#&gt; 118              Patient                  Transportation</span></span>
+<span id="cb2-121"><a href="#cb2-121" tabindex="-1"></a><span class="co">#&gt; 119              Patient                  Transportation</span></span>
+<span id="cb2-122"><a href="#cb2-122" tabindex="-1"></a><span class="co">#&gt; 120              Patient                  Transportation</span></span>
+<span id="cb2-123"><a href="#cb2-123" tabindex="-1"></a><span class="co">#&gt; 121              Patient                  Transportation</span></span>
+<span id="cb2-124"><a href="#cb2-124" tabindex="-1"></a><span class="co">#&gt; 122              Patient      Time costs for the patient</span></span>
+<span id="cb2-125"><a href="#cb2-125" tabindex="-1"></a><span class="co">#&gt; 123 Productivity &amp; Other   Productivity loss - Paid work</span></span>
+<span id="cb2-126"><a href="#cb2-126" tabindex="-1"></a><span class="co">#&gt; 124 Productivity &amp; Other Productivity loss - Unpaid work</span></span>
+<span id="cb2-127"><a href="#cb2-127" tabindex="-1"></a><span class="co">#&gt; 125 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-128"><a href="#cb2-128" tabindex="-1"></a><span class="co">#&gt; 126 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-129"><a href="#cb2-129" tabindex="-1"></a><span class="co">#&gt; 127 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-130"><a href="#cb2-130" tabindex="-1"></a><span class="co">#&gt; 128 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-131"><a href="#cb2-131" tabindex="-1"></a><span class="co">#&gt; 129 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-132"><a href="#cb2-132" tabindex="-1"></a><span class="co">#&gt; 130 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-133"><a href="#cb2-133" tabindex="-1"></a><span class="co">#&gt; 131 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-134"><a href="#cb2-134" tabindex="-1"></a><span class="co">#&gt; 132 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-135"><a href="#cb2-135" tabindex="-1"></a><span class="co">#&gt; 133 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-136"><a href="#cb2-136" tabindex="-1"></a><span class="co">#&gt; 134 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-137"><a href="#cb2-137" tabindex="-1"></a><span class="co">#&gt; 135 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-138"><a href="#cb2-138" tabindex="-1"></a><span class="co">#&gt; 136 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-139"><a href="#cb2-139" tabindex="-1"></a><span class="co">#&gt; 137 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-140"><a href="#cb2-140" tabindex="-1"></a><span class="co">#&gt; 138 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-141"><a href="#cb2-141" tabindex="-1"></a><span class="co">#&gt; 139 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-142"><a href="#cb2-142" tabindex="-1"></a><span class="co">#&gt; 140 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-143"><a href="#cb2-143" tabindex="-1"></a><span class="co">#&gt; 141 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-144"><a href="#cb2-144" tabindex="-1"></a><span class="co">#&gt; 142 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-145"><a href="#cb2-145" tabindex="-1"></a><span class="co">#&gt; 143 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-146"><a href="#cb2-146" tabindex="-1"></a><span class="co">#&gt; 144 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-147"><a href="#cb2-147" tabindex="-1"></a><span class="co">#&gt; 145 Productivity &amp; Other                       Education</span></span>
+<span id="cb2-148"><a href="#cb2-148" tabindex="-1"></a><span class="co">#&gt; 146 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-149"><a href="#cb2-149" tabindex="-1"></a><span class="co">#&gt; 147 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-150"><a href="#cb2-150" tabindex="-1"></a><span class="co">#&gt; 148 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-151"><a href="#cb2-151" tabindex="-1"></a><span class="co">#&gt; 149 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-152"><a href="#cb2-152" tabindex="-1"></a><span class="co">#&gt; 150 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-153"><a href="#cb2-153" tabindex="-1"></a><span class="co">#&gt; 151 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-154"><a href="#cb2-154" tabindex="-1"></a><span class="co">#&gt; 152 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-155"><a href="#cb2-155" tabindex="-1"></a><span class="co">#&gt; 153 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-156"><a href="#cb2-156" tabindex="-1"></a><span class="co">#&gt; 154 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-157"><a href="#cb2-157" tabindex="-1"></a><span class="co">#&gt; 155 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-158"><a href="#cb2-158" tabindex="-1"></a><span class="co">#&gt; 156 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-159"><a href="#cb2-159" tabindex="-1"></a><span class="co">#&gt; 157 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-160"><a href="#cb2-160" tabindex="-1"></a><span class="co">#&gt; 158 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-161"><a href="#cb2-161" tabindex="-1"></a><span class="co">#&gt; 159 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-162"><a href="#cb2-162" tabindex="-1"></a><span class="co">#&gt; 160 Productivity &amp; Other              Safety and Justice</span></span>
+<span id="cb2-163"><a href="#cb2-163" tabindex="-1"></a><span class="co">#&gt;                                                                                                                                                                     Unit</span></span>
+<span id="cb2-164"><a href="#cb2-164" tabindex="-1"></a><span class="co">#&gt; 1                                                                                                                        Nursing day excluding personnel costs, hospital</span></span>
+<span id="cb2-165"><a href="#cb2-165" tabindex="-1"></a><span class="co">#&gt; 2                                                                                                                        Nursing day including personnel costs, hospital</span></span>
+<span id="cb2-166"><a href="#cb2-166" tabindex="-1"></a><span class="co">#&gt; 3                                                                                                         Nursing day, intensive care (incl. diagnostics and medication)</span></span>
+<span id="cb2-167"><a href="#cb2-167" tabindex="-1"></a><span class="co">#&gt; 4                                                                                                                                                Day treatment, hospital</span></span>
+<span id="cb2-168"><a href="#cb2-168" tabindex="-1"></a><span class="co">#&gt; 5                                                                                                                                   Intravenous administration, hospital</span></span>
+<span id="cb2-169"><a href="#cb2-169" tabindex="-1"></a><span class="co">#&gt; 6                                                                                                                                  Subcutaneous administration, hospital</span></span>
+<span id="cb2-170"><a href="#cb2-170" tabindex="-1"></a><span class="co">#&gt; 7                                                                                                                                             Outpatient visit, hospital</span></span>
+<span id="cb2-171"><a href="#cb2-171" tabindex="-1"></a><span class="co">#&gt; 8                                                                                                                                                         Emergency care</span></span>
+<span id="cb2-172"><a href="#cb2-172" tabindex="-1"></a><span class="co">#&gt; 9                                                                                                                                       Ambulance ride, weighted average</span></span>
+<span id="cb2-173"><a href="#cb2-173" tabindex="-1"></a><span class="co">#&gt; 10                                                                                                                                     Ambulance ride, ordered transport</span></span>
+<span id="cb2-174"><a href="#cb2-174" tabindex="-1"></a><span class="co">#&gt; 11                                                                                                                                      Ambulance ride, urgent transport</span></span>
+<span id="cb2-175"><a href="#cb2-175" tabindex="-1"></a><span class="co">#&gt; 12                                                                                                                         Conventional operating room, usage per minute</span></span>
+<span id="cb2-176"><a href="#cb2-176" tabindex="-1"></a><span class="co">#&gt; 13                                                                                                                               Hybrid operating room, usage per minute</span></span>
+<span id="cb2-177"><a href="#cb2-177" tabindex="-1"></a><span class="co">#&gt; 14                                                                                                                                        MRI general (weighted average)</span></span>
+<span id="cb2-178"><a href="#cb2-178" tabindex="-1"></a><span class="co">#&gt; 15                                                                                                                                           MRI hips/ lower extremities</span></span>
+<span id="cb2-179"><a href="#cb2-179" tabindex="-1"></a><span class="co">#&gt; 16                                                                                                                                                             MRI brain</span></span>
+<span id="cb2-180"><a href="#cb2-180" tabindex="-1"></a><span class="co">#&gt; 17                                                                                                                                                 MRI lumbosacral spine</span></span>
+<span id="cb2-181"><a href="#cb2-181" tabindex="-1"></a><span class="co">#&gt; 18                                                                                                                                    MRI shoulder(s)/ upper extremities</span></span>
+<span id="cb2-182"><a href="#cb2-182" tabindex="-1"></a><span class="co">#&gt; 19                                                                                                                                                           MRI abdomen</span></span>
+<span id="cb2-183"><a href="#cb2-183" tabindex="-1"></a><span class="co">#&gt; 20                                                                                                                                         CT general (weighted average)</span></span>
+<span id="cb2-184"><a href="#cb2-184" tabindex="-1"></a><span class="co">#&gt; 21  CT examination of the abdomen, retroperitoneum, including included oral and/or rectal contrast agent, with or under administration of an intravenous contrast agent.</span></span>
+<span id="cb2-185"><a href="#cb2-185" tabindex="-1"></a><span class="co">#&gt; 22                                                                              CT examination of the thorax, heart and major vessels including contrast agent injection</span></span>
+<span id="cb2-186"><a href="#cb2-186" tabindex="-1"></a><span class="co">#&gt; 23                                                                                   CT examination of the brain and/or skull with or without intravenous contrast agent</span></span>
+<span id="cb2-187"><a href="#cb2-187" tabindex="-1"></a><span class="co">#&gt; 24                                                                                   CT examination of the lower extremities, with or without intravenous contrast agent</span></span>
+<span id="cb2-188"><a href="#cb2-188" tabindex="-1"></a><span class="co">#&gt; 25                                                                                        CT examination of the facial skull, with or without intravenous contrast agent</span></span>
+<span id="cb2-189"><a href="#cb2-189" tabindex="-1"></a><span class="co">#&gt; 26                                                                                                                                      SPECT general (weighted average)</span></span>
+<span id="cb2-190"><a href="#cb2-190" tabindex="-1"></a><span class="co">#&gt; 27                                                                                                                                              SPECT of skeleton detail</span></span>
+<span id="cb2-191"><a href="#cb2-191" tabindex="-1"></a><span class="co">#&gt; 28                                                                                                      SPECT of heart chambers ECG-triggered, rest with EF calculations</span></span>
+<span id="cb2-192"><a href="#cb2-192" tabindex="-1"></a><span class="co">#&gt; 29                                                                                                                                                    SPECT of the brain</span></span>
+<span id="cb2-193"><a href="#cb2-193" tabindex="-1"></a><span class="co">#&gt; 30                                                                                                                                                      SPECT of abdomen</span></span>
+<span id="cb2-194"><a href="#cb2-194" tabindex="-1"></a><span class="co">#&gt; 31                                                                                                                                        PET general (weighted average)</span></span>
+<span id="cb2-195"><a href="#cb2-195" tabindex="-1"></a><span class="co">#&gt; 32                                                                                                                                         PET WB (Whole Body), oncology</span></span>
+<span id="cb2-196"><a href="#cb2-196" tabindex="-1"></a><span class="co">#&gt; 33                                                                                                                             PET Partial (Neurological, Cardiological)</span></span>
+<span id="cb2-197"><a href="#cb2-197" tabindex="-1"></a><span class="co">#&gt; 34                                                                                                                                 Ultrasound general (weighted average)</span></span>
+<span id="cb2-198"><a href="#cb2-198" tabindex="-1"></a><span class="co">#&gt; 35                                                                                                                                        Ultrasound of abdominal organs</span></span>
+<span id="cb2-199"><a href="#cb2-199" tabindex="-1"></a><span class="co">#&gt; 36                                                                                                                                          Ultrasound lower extremities</span></span>
+<span id="cb2-200"><a href="#cb2-200" tabindex="-1"></a><span class="co">#&gt; 37                                                                                                                             Ultrasound a vue in relation to pregnancy</span></span>
+<span id="cb2-201"><a href="#cb2-201" tabindex="-1"></a><span class="co">#&gt; 38                                                                                                                                              Ultrasound of the breast</span></span>
+<span id="cb2-202"><a href="#cb2-202" tabindex="-1"></a><span class="co">#&gt; 39                                                                                                                                 Ultrasound of the thyroid and/or neck</span></span>
+<span id="cb2-203"><a href="#cb2-203" tabindex="-1"></a><span class="co">#&gt; 40                                                                                                                                                     X-ray examination</span></span>
+<span id="cb2-204"><a href="#cb2-204" tabindex="-1"></a><span class="co">#&gt; 41                                                                                                                                    24-hour blood pressure measurement</span></span>
+<span id="cb2-205"><a href="#cb2-205" tabindex="-1"></a><span class="co">#&gt; 42                                                                                                                                                     CRP determination</span></span>
+<span id="cb2-206"><a href="#cb2-206" tabindex="-1"></a><span class="co">#&gt; 43                                                                                                                                                   HbA1C determination</span></span>
+<span id="cb2-207"><a href="#cb2-207" tabindex="-1"></a><span class="co">#&gt; 44                                                                                                                                                     TSH determination</span></span>
+<span id="cb2-208"><a href="#cb2-208" tabindex="-1"></a><span class="co">#&gt; 45                                                                                                                                              Creatinine determination</span></span>
+<span id="cb2-209"><a href="#cb2-209" tabindex="-1"></a><span class="co">#&gt; 46                                                                                                                                                  Creatinine clearance</span></span>
+<span id="cb2-210"><a href="#cb2-210" tabindex="-1"></a><span class="co">#&gt; 47                                                                                                                                                    ALAT determination</span></span>
+<span id="cb2-211"><a href="#cb2-211" tabindex="-1"></a><span class="co">#&gt; 48                                                                                                                                                        Arm prosthesis</span></span>
+<span id="cb2-212"><a href="#cb2-212" tabindex="-1"></a><span class="co">#&gt; 49                                                                                                                                                        Leg prosthesis</span></span>
+<span id="cb2-213"><a href="#cb2-213" tabindex="-1"></a><span class="co">#&gt; 50                                                                                Aids for the use of communication aids (e.g. computers for physically disabled people)</span></span>
+<span id="cb2-214"><a href="#cb2-214" tabindex="-1"></a><span class="co">#&gt; 51                                                                               Aids for communication and information for visual impairments (e.g. magnifying glasses)</span></span>
+<span id="cb2-215"><a href="#cb2-215" tabindex="-1"></a><span class="co">#&gt; 52                                                                                                               Other aids for communication, information and signaling</span></span>
+<span id="cb2-216"><a href="#cb2-216" tabindex="-1"></a><span class="co">#&gt; 53                                                                                                                                                   Other mobility aids</span></span>
+<span id="cb2-217"><a href="#cb2-217" tabindex="-1"></a><span class="co">#&gt; 54                                                                                                                                                   Other diabetes aids</span></span>
+<span id="cb2-218"><a href="#cb2-218" tabindex="-1"></a><span class="co">#&gt; 55                                                                                                                               Other aids for arm-hand-finger function</span></span>
+<span id="cb2-219"><a href="#cb2-219" tabindex="-1"></a><span class="co">#&gt; 56                                                                                                                                                   Orthopedic footwear</span></span>
+<span id="cb2-220"><a href="#cb2-220" tabindex="-1"></a><span class="co">#&gt; 57                                                                                                                                                  Special optical aids</span></span>
+<span id="cb2-221"><a href="#cb2-221" tabindex="-1"></a><span class="co">#&gt; 58                                                                    General practitioner, average consultation (also applicable for telephone and e-mail consultation)</span></span>
+<span id="cb2-222"><a href="#cb2-222" tabindex="-1"></a><span class="co">#&gt; 59                                                    General practitioner, consultation shorter than 20 minutes (also applicable for telephone and e-mail consultation)</span></span>
+<span id="cb2-223"><a href="#cb2-223" tabindex="-1"></a><span class="co">#&gt; 60                                                    General practitioner, consultation longer than 20 minutes (also applicable for telephone and e-mail consultation))</span></span>
+<span id="cb2-224"><a href="#cb2-224" tabindex="-1"></a><span class="co">#&gt; 61                                                                                                                              General practitioner, average home visit</span></span>
+<span id="cb2-225"><a href="#cb2-225" tabindex="-1"></a><span class="co">#&gt; 62                                                                                                              General practitioner, home visit shorter than 20 minutes</span></span>
+<span id="cb2-226"><a href="#cb2-226" tabindex="-1"></a><span class="co">#&gt; 63                                                                                                               General practitioner, home visit longer than 20 minutes</span></span>
+<span id="cb2-227"><a href="#cb2-227" tabindex="-1"></a><span class="co">#&gt; 64                                                                                                                                           Physiotherapy (per session)</span></span>
+<span id="cb2-228"><a href="#cb2-228" tabindex="-1"></a><span class="co">#&gt; 65                                                                                                                                        Exercise therapy (per session)</span></span>
+<span id="cb2-229"><a href="#cb2-229" tabindex="-1"></a><span class="co">#&gt; 66                                                                                                                                          Speech therapy (per session)</span></span>
+<span id="cb2-230"><a href="#cb2-230" tabindex="-1"></a><span class="co">#&gt; 67                                                                                                                                    Occupational therapy (per session)</span></span>
+<span id="cb2-231"><a href="#cb2-231" tabindex="-1"></a><span class="co">#&gt; 68                                                                                                                                             Diet advice (per session)</span></span>
+<span id="cb2-232"><a href="#cb2-232" tabindex="-1"></a><span class="co">#&gt; 69                                                                                                                                Combined lifestyle interventions (GLI)</span></span>
+<span id="cb2-233"><a href="#cb2-233" tabindex="-1"></a><span class="co">#&gt; 70                                                                                                                 Nursing &amp; care, including daytime activities, per day</span></span>
+<span id="cb2-234"><a href="#cb2-234" tabindex="-1"></a><span class="co">#&gt; 71                                                                                                                                      Daytime activities, per half day</span></span>
+<span id="cb2-235"><a href="#cb2-235" tabindex="-1"></a><span class="co">#&gt; 72                                                                                                                        Geriatric rehabilitation care, average per day</span></span>
+<span id="cb2-236"><a href="#cb2-236" tabindex="-1"></a><span class="co">#&gt; 73                                                                                                               Geriatric rehabilitation care after amputation, per day</span></span>
+<span id="cb2-237"><a href="#cb2-237" tabindex="-1"></a><span class="co">#&gt; 74                                                                                                                   Geriatric rehabilitation care after stroke, per day</span></span>
+<span id="cb2-238"><a href="#cb2-238" tabindex="-1"></a><span class="co">#&gt; 75                                                                                                         Geriatric rehabilitation care after elective surgery, per day</span></span>
+<span id="cb2-239"><a href="#cb2-239" tabindex="-1"></a><span class="co">#&gt; 76                                                                                                                   Geriatric rehabilitation care after trauma, per day</span></span>
+<span id="cb2-240"><a href="#cb2-240" tabindex="-1"></a><span class="co">#&gt; 77                                                                                                                Geriatric rehabilitation care other diagnoses, per day</span></span>
+<span id="cb2-241"><a href="#cb2-241" tabindex="-1"></a><span class="co">#&gt; 78                                                                                                                                                Household help at home</span></span>
+<span id="cb2-242"><a href="#cb2-242" tabindex="-1"></a><span class="co">#&gt; 79                                                                                                                                                 Personal care at home</span></span>
+<span id="cb2-243"><a href="#cb2-243" tabindex="-1"></a><span class="co">#&gt; 80                                                                                                                                            Guidance at home, per hour</span></span>
+<span id="cb2-244"><a href="#cb2-244" tabindex="-1"></a><span class="co">#&gt; 81                                                                                                                                             Nursing at home, per hour</span></span>
+<span id="cb2-245"><a href="#cb2-245" tabindex="-1"></a><span class="co">#&gt; 82                                                                                                                                           Treatment at home, per hour</span></span>
+<span id="cb2-246"><a href="#cb2-246" tabindex="-1"></a><span class="co">#&gt; 83                                                                                                                                               Travel costs, per visit</span></span>
+<span id="cb2-247"><a href="#cb2-247" tabindex="-1"></a><span class="co">#&gt; 84                                                                                 POH-GGZ, average consultation (also applicable for telephone and e-mail consultation)</span></span>
+<span id="cb2-248"><a href="#cb2-248" tabindex="-1"></a><span class="co">#&gt; 85                                                                 POH-GGZ, consultation shorter than 20 minutes (also applicable for telephone and e-mail consultation)</span></span>
+<span id="cb2-249"><a href="#cb2-249" tabindex="-1"></a><span class="co">#&gt; 86                                                                  POH-GGZ, consultation longer than 20 minutes (also applicable for telephone and e-mail consultation)</span></span>
+<span id="cb2-250"><a href="#cb2-250" tabindex="-1"></a><span class="co">#&gt; 87                                                                                                                                           POH-GGZ, average home visit</span></span>
+<span id="cb2-251"><a href="#cb2-251" tabindex="-1"></a><span class="co">#&gt; 88                                                                                                                           POH-GGZ, home visit shorter than 20 minutes</span></span>
+<span id="cb2-252"><a href="#cb2-252" tabindex="-1"></a><span class="co">#&gt; 89                                                                                                                            POH-GGZ, home visit longer than 20 minutes</span></span>
+<span id="cb2-253"><a href="#cb2-253" tabindex="-1"></a><span class="co">#&gt; 90                                                                                                                                           POH-GGZ, Group consultation</span></span>
+<span id="cb2-254"><a href="#cb2-254" tabindex="-1"></a><span class="co">#&gt; 91                                                                                                                                                   Contact social work</span></span>
+<span id="cb2-255"><a href="#cb2-255" tabindex="-1"></a><span class="co">#&gt; 92                                                                                                   Contact independent healthcare provider in basic mental health care</span></span>
+<span id="cb2-256"><a href="#cb2-256" tabindex="-1"></a><span class="co">#&gt; 93                                                                                          Contact healthcare provider in general basic mental health care institutions</span></span>
+<span id="cb2-257"><a href="#cb2-257" tabindex="-1"></a><span class="co">#&gt; 94                                                                                             Contact independent healthcare provider in specialized mental health care</span></span>
+<span id="cb2-258"><a href="#cb2-258" tabindex="-1"></a><span class="co">#&gt; 95                                                                                            Contact healthcare provider in specialized mental health care institutions</span></span>
+<span id="cb2-259"><a href="#cb2-259" tabindex="-1"></a><span class="co">#&gt; 96                                                                                                                           Contact healthcare provider in the PAAZ/PUK</span></span>
+<span id="cb2-260"><a href="#cb2-260" tabindex="-1"></a><span class="co">#&gt; 97                                                                                                                                  Nursing day, psychiatric institution</span></span>
+<span id="cb2-261"><a href="#cb2-261" tabindex="-1"></a><span class="co">#&gt; 98                                                                                                                                                 Nursing day, PAAZ/PUK</span></span>
+<span id="cb2-262"><a href="#cb2-262" tabindex="-1"></a><span class="co">#&gt; 99                                                                                                           Daytime activities half day, specialized mental health care</span></span>
+<span id="cb2-263"><a href="#cb2-263" tabindex="-1"></a><span class="co">#&gt; 100                                                                                                           Rehabilitation treatment consultation, children and adults</span></span>
+<span id="cb2-264"><a href="#cb2-264" tabindex="-1"></a><span class="co">#&gt; 101                                                                                                                      Rehabilitation treatment consultation, children</span></span>
+<span id="cb2-265"><a href="#cb2-265" tabindex="-1"></a><span class="co">#&gt; 102                                                                                                                        Rehabilitation treatment consultation, adults</span></span>
+<span id="cb2-266"><a href="#cb2-266" tabindex="-1"></a><span class="co">#&gt; 103                                                                        Nursing day rehabilitation center, children and adults (incl. rehabilitation treatment hours)</span></span>
+<span id="cb2-267"><a href="#cb2-267" tabindex="-1"></a><span class="co">#&gt; 104                                                                                   Nursing day rehabilitation center, children (incl. rehabilitation treatment hours)</span></span>
+<span id="cb2-268"><a href="#cb2-268" tabindex="-1"></a><span class="co">#&gt; 105                                                                                     Nursing day rehabilitation center, adults (incl. rehabilitation treatment hours)</span></span>
+<span id="cb2-269"><a href="#cb2-269" tabindex="-1"></a><span class="co">#&gt; 106                                                                                     Care with residence (per day), intellectually disabled, incl. daytime activities</span></span>
+<span id="cb2-270"><a href="#cb2-270" tabindex="-1"></a><span class="co">#&gt; 107                                                                                     Care with residence (per day), intellectually disabled, excl. daytime activities</span></span>
+<span id="cb2-271"><a href="#cb2-271" tabindex="-1"></a><span class="co">#&gt; 108                                                                              Care with residence (per day), mildly intellectually disabled, incl. daytime activities</span></span>
+<span id="cb2-272"><a href="#cb2-272" tabindex="-1"></a><span class="co">#&gt; 109                                              Care with residence (per day), severely behaviorally disturbed mildly intellectually disabled, incl. daytime activities</span></span>
+<span id="cb2-273"><a href="#cb2-273" tabindex="-1"></a><span class="co">#&gt; 110                                                                                         Care with residence (per day), physically disabled, incl. daytime activities</span></span>
+<span id="cb2-274"><a href="#cb2-274" tabindex="-1"></a><span class="co">#&gt; 111                                                                                         Care with residence (per day), physically disabled, excl. daytime activities</span></span>
+<span id="cb2-275"><a href="#cb2-275" tabindex="-1"></a><span class="co">#&gt; 112                                                                       Care with residence (per day), auditory and communicatively disabled, incl. daytime activities</span></span>
+<span id="cb2-276"><a href="#cb2-276" tabindex="-1"></a><span class="co">#&gt; 113                                                                       Care with residence (per day), auditory and communicatively disabled, excl. daytime activities</span></span>
+<span id="cb2-277"><a href="#cb2-277" tabindex="-1"></a><span class="co">#&gt; 114                                                                                           Care with residence (per day), visually disabled, incl. daytime activities</span></span>
+<span id="cb2-278"><a href="#cb2-278" tabindex="-1"></a><span class="co">#&gt; 115                                                                                           Care with residence (per day), visually disabled, excl. daytime activities</span></span>
+<span id="cb2-279"><a href="#cb2-279" tabindex="-1"></a><span class="co">#&gt; 116                                                                                                                                                         order tariff</span></span>
+<span id="cb2-280"><a href="#cb2-280" tabindex="-1"></a><span class="co">#&gt; 117                                                                                                                                              Car, cost per kilometer</span></span>
+<span id="cb2-281"><a href="#cb2-281" tabindex="-1"></a><span class="co">#&gt; 118                                                                                                                                          Car, parking cost per visit</span></span>
+<span id="cb2-282"><a href="#cb2-282" tabindex="-1"></a><span class="co">#&gt; 119                                                                                                                                 Public transport, cost per kilometer</span></span>
+<span id="cb2-283"><a href="#cb2-283" tabindex="-1"></a><span class="co">#&gt; 120                                                                                                                                 Taxi &amp; WMO transport (starting rate)</span></span>
+<span id="cb2-284"><a href="#cb2-284" tabindex="-1"></a><span class="co">#&gt; 121                                                                                                                           Taxi &amp; WMO transport (price per kilometer)</span></span>
+<span id="cb2-285"><a href="#cb2-285" tabindex="-1"></a><span class="co">#&gt; 122                                                                                                        Time costs of informal caregivers, replacement costs per hour</span></span>
+<span id="cb2-286"><a href="#cb2-286" tabindex="-1"></a><span class="co">#&gt; 123                                                                                                                          Productivity costs per hour per paid worker</span></span>
+<span id="cb2-287"><a href="#cb2-287" tabindex="-1"></a><span class="co">#&gt; 124                                                                                                                                           Replacement costs per hour</span></span>
+<span id="cb2-288"><a href="#cb2-288" tabindex="-1"></a><span class="co">#&gt; 125                                                                                                                                           Primary education per year</span></span>
+<span id="cb2-289"><a href="#cb2-289" tabindex="-1"></a><span class="co">#&gt; 126                                                                                                                                            Primary education per day</span></span>
+<span id="cb2-290"><a href="#cb2-290" tabindex="-1"></a><span class="co">#&gt; 127                                                                                                                                           Primary education per hour</span></span>
+<span id="cb2-291"><a href="#cb2-291" tabindex="-1"></a><span class="co">#&gt; 128                                                                                                                                         Secondary education per year</span></span>
+<span id="cb2-292"><a href="#cb2-292" tabindex="-1"></a><span class="co">#&gt; 129                                                                                                                                          Secondary education per day</span></span>
+<span id="cb2-293"><a href="#cb2-293" tabindex="-1"></a><span class="co">#&gt; 130                                                                                                                                         Secondary education per hour</span></span>
+<span id="cb2-294"><a href="#cb2-294" tabindex="-1"></a><span class="co">#&gt; 131                                                                                                                                        Vocational education per year</span></span>
+<span id="cb2-295"><a href="#cb2-295" tabindex="-1"></a><span class="co">#&gt; 132                                                                                                                                         Vocational education per day</span></span>
+<span id="cb2-296"><a href="#cb2-296" tabindex="-1"></a><span class="co">#&gt; 133                                                                                                                                        Vocational education per hour</span></span>
+<span id="cb2-297"><a href="#cb2-297" tabindex="-1"></a><span class="co">#&gt; 134                                                                                                                               Higher professional education per year</span></span>
+<span id="cb2-298"><a href="#cb2-298" tabindex="-1"></a><span class="co">#&gt; 135                                                                                                                                Higher professional education per day</span></span>
+<span id="cb2-299"><a href="#cb2-299" tabindex="-1"></a><span class="co">#&gt; 136                                                                                                                               Higher professional education per hour</span></span>
+<span id="cb2-300"><a href="#cb2-300" tabindex="-1"></a><span class="co">#&gt; 137                                                                                                                                        Scientific education per year</span></span>
+<span id="cb2-301"><a href="#cb2-301" tabindex="-1"></a><span class="co">#&gt; 138                                                                                                                                         Scientific education per day</span></span>
+<span id="cb2-302"><a href="#cb2-302" tabindex="-1"></a><span class="co">#&gt; 139                                                                                                                                        Scientific education per hour</span></span>
+<span id="cb2-303"><a href="#cb2-303" tabindex="-1"></a><span class="co">#&gt; 140                                                                                                                                 Special (primary) education per year</span></span>
+<span id="cb2-304"><a href="#cb2-304" tabindex="-1"></a><span class="co">#&gt; 141                                                                                                                                  Special (primary) education per day</span></span>
+<span id="cb2-305"><a href="#cb2-305" tabindex="-1"></a><span class="co">#&gt; 142                                                                                                                                 Special (primary) education per hour</span></span>
+<span id="cb2-306"><a href="#cb2-306" tabindex="-1"></a><span class="co">#&gt; 143                                                                                                                                         Tutoring by student per hour</span></span>
+<span id="cb2-307"><a href="#cb2-307" tabindex="-1"></a><span class="co">#&gt; 144                                                                                                                                         Tutoring by teacher per hour</span></span>
+<span id="cb2-308"><a href="#cb2-308" tabindex="-1"></a><span class="co">#&gt; 145                                                                                                                                           Remedial teaching per hour</span></span>
+<span id="cb2-309"><a href="#cb2-309" tabindex="-1"></a><span class="co">#&gt; 146                                                                                                                                          Robbery/theft with violence</span></span>
+<span id="cb2-310"><a href="#cb2-310" tabindex="-1"></a><span class="co">#&gt; 147                                                                                                                                           Simple theft/pickpocketing</span></span>
+<span id="cb2-311"><a href="#cb2-311" tabindex="-1"></a><span class="co">#&gt; 148                                                                                                                                                Handling stolen goods</span></span>
+<span id="cb2-312"><a href="#cb2-312" tabindex="-1"></a><span class="co">#&gt; 149                                                                                                                  Destruction/vandalism of private or public property</span></span>
+<span id="cb2-313"><a href="#cb2-313" tabindex="-1"></a><span class="co">#&gt; 150                                                                                                                                    Disorderly conduct/discrimination</span></span>
+<span id="cb2-314"><a href="#cb2-314" tabindex="-1"></a><span class="co">#&gt; 151                                                                                                                                                                Arson</span></span>
+<span id="cb2-315"><a href="#cb2-315" tabindex="-1"></a><span class="co">#&gt; 152                                                                                                                                                           Cybercrime</span></span>
+<span id="cb2-316"><a href="#cb2-316" tabindex="-1"></a><span class="co">#&gt; 153                                                                                                                                            Simple and severe assault</span></span>
+<span id="cb2-317"><a href="#cb2-317" tabindex="-1"></a><span class="co">#&gt; 154                                                                                                                                                 Threatening behavior</span></span>
+<span id="cb2-318"><a href="#cb2-318" tabindex="-1"></a><span class="co">#&gt; 155                                                                                                                                                Forced sexual contact</span></span>
+<span id="cb2-319"><a href="#cb2-319" tabindex="-1"></a><span class="co">#&gt; 156                                                                                                                                                 Unauthorized driving</span></span>
+<span id="cb2-320"><a href="#cb2-320" tabindex="-1"></a><span class="co">#&gt; 157                                                                                                                                          Driving under the influence</span></span>
+<span id="cb2-321"><a href="#cb2-321" tabindex="-1"></a><span class="co">#&gt; 158                                                                                                                                                   Selling soft drugs</span></span>
+<span id="cb2-322"><a href="#cb2-322" tabindex="-1"></a><span class="co">#&gt; 159                                                                                                                                                   Selling hard drugs</span></span>
+<span id="cb2-323"><a href="#cb2-323" tabindex="-1"></a><span class="co">#&gt; 160                                                                                                                                                    (Fire)arm offense</span></span>
+<span id="cb2-324"><a href="#cb2-324" tabindex="-1"></a><span class="co">#&gt;                            short_var      2022         2023         2024</span></span>
+<span id="cb2-325"><a href="#cb2-325" tabindex="-1"></a><span class="co">#&gt; 1          nursingday_excl_personnel    537.00    557.40600    576.20100</span></span>
+<span id="cb2-326"><a href="#cb2-326" tabindex="-1"></a><span class="co">#&gt; 2          nursingday_incl_personnel    644.00    668.47200    691.01200</span></span>
+<span id="cb2-327"><a href="#cb2-327" tabindex="-1"></a><span class="co">#&gt; 3           nursingday_intensivecare   2727.00   2830.62600   2926.07100</span></span>
+<span id="cb2-328"><a href="#cb2-328" tabindex="-1"></a><span class="co">#&gt; 4              daytreatment_hospital    335.00    347.73000    359.45500</span></span>
+<span id="cb2-329"><a href="#cb2-329" tabindex="-1"></a><span class="co">#&gt; 5                  iv_admin_hospital    171.00    177.49800    183.48300</span></span>
+<span id="cb2-330"><a href="#cb2-330" tabindex="-1"></a><span class="co">#&gt; 6                  sc_admin_hospital     75.28     78.14064     80.77544</span></span>
+<span id="cb2-331"><a href="#cb2-331" tabindex="-1"></a><span class="co">#&gt; 7          outpatient_visit_hospital    120.00    124.56000    128.76000</span></span>
+<span id="cb2-332"><a href="#cb2-332" tabindex="-1"></a><span class="co">#&gt; 8                     emergency_care    258.00    267.80400    276.83400</span></span>
+<span id="cb2-333"><a href="#cb2-333" tabindex="-1"></a><span class="co">#&gt; 9                 ambulance_weighted    528.00    548.06400    566.54400</span></span>
+<span id="cb2-334"><a href="#cb2-334" tabindex="-1"></a><span class="co">#&gt; 10                 ambulance_ordered    293.00    304.13400    314.38900</span></span>
+<span id="cb2-335"><a href="#cb2-335" tabindex="-1"></a><span class="co">#&gt; 11                  ambulance_urgent    657.00    681.96600    704.96100</span></span>
+<span id="cb2-336"><a href="#cb2-336" tabindex="-1"></a><span class="co">#&gt; 12    operatingroom_conventional_min     11.09     11.51142     11.89957</span></span>
+<span id="cb2-337"><a href="#cb2-337" tabindex="-1"></a><span class="co">#&gt; 13          operatingroom_hybrid_min     23.34     24.22692     25.04382</span></span>
+<span id="cb2-338"><a href="#cb2-338" tabindex="-1"></a><span class="co">#&gt; 14                       mri_general    267.00    277.14600    286.49100</span></span>
+<span id="cb2-339"><a href="#cb2-339" tabindex="-1"></a><span class="co">#&gt; 15              mri_lowerextremities    264.00    274.03200    283.27200</span></span>
+<span id="cb2-340"><a href="#cb2-340" tabindex="-1"></a><span class="co">#&gt; 16                         mri_brain    254.00    263.65200    272.54200</span></span>
+<span id="cb2-341"><a href="#cb2-341" tabindex="-1"></a><span class="co">#&gt; 17                   mri_lumbosacral    227.00    235.62600    243.57100</span></span>
+<span id="cb2-342"><a href="#cb2-342" tabindex="-1"></a><span class="co">#&gt; 18            mri_shoulders_upperext    271.00    281.29800    290.78300</span></span>
+<span id="cb2-343"><a href="#cb2-343" tabindex="-1"></a><span class="co">#&gt; 19                       mri_abdomen    342.00    354.99600    366.96600</span></span>
+<span id="cb2-344"><a href="#cb2-344" tabindex="-1"></a><span class="co">#&gt; 20                        ct_general    188.00    195.14400    201.72400</span></span>
+<span id="cb2-345"><a href="#cb2-345" tabindex="-1"></a><span class="co">#&gt; 21               ct_abdomen_contrast    214.00    222.13200    229.62200</span></span>
+<span id="cb2-346"><a href="#cb2-346" tabindex="-1"></a><span class="co">#&gt; 22                ct_thorax_contrast    196.00    203.44800    210.30800</span></span>
+<span id="cb2-347"><a href="#cb2-347" tabindex="-1"></a><span class="co">#&gt; 23                 ct_brain_contrast    153.00    158.81400    164.16900</span></span>
+<span id="cb2-348"><a href="#cb2-348" tabindex="-1"></a><span class="co">#&gt; 24      ct_lowerextremities_contrast    179.00    185.80200    192.06700</span></span>
+<span id="cb2-349"><a href="#cb2-349" tabindex="-1"></a><span class="co">#&gt; 25           ct_facialskull_contrast    147.00    152.58600    157.73100</span></span>
+<span id="cb2-350"><a href="#cb2-350" tabindex="-1"></a><span class="co">#&gt; 26                     spect_general    445.00    461.91000    477.48500</span></span>
+<span id="cb2-351"><a href="#cb2-351" tabindex="-1"></a><span class="co">#&gt; 27                    spect_skeleton    266.00    276.10800    285.41800</span></span>
+<span id="cb2-352"><a href="#cb2-352" tabindex="-1"></a><span class="co">#&gt; 28                   spect_heart_ecg    515.00    534.57000    552.59500</span></span>
+<span id="cb2-353"><a href="#cb2-353" tabindex="-1"></a><span class="co">#&gt; 29                       spect_brain    626.00    649.78800    671.69800</span></span>
+<span id="cb2-354"><a href="#cb2-354" tabindex="-1"></a><span class="co">#&gt; 30                     spect_abdomen    323.00    335.27400    346.57900</span></span>
+<span id="cb2-355"><a href="#cb2-355" tabindex="-1"></a><span class="co">#&gt; 31                       pet_general    963.00    999.59400   1033.29900</span></span>
+<span id="cb2-356"><a href="#cb2-356" tabindex="-1"></a><span class="co">#&gt; 32                     pet_wholebody    971.00   1007.89800   1041.88300</span></span>
+<span id="cb2-357"><a href="#cb2-357" tabindex="-1"></a><span class="co">#&gt; 33                       pet_partial    700.00    726.60000    751.10000</span></span>
+<span id="cb2-358"><a href="#cb2-358" tabindex="-1"></a><span class="co">#&gt; 34                ultrasound_general    103.00    106.91400    110.51900</span></span>
+<span id="cb2-359"><a href="#cb2-359" tabindex="-1"></a><span class="co">#&gt; 35              ultrasound_abdominal    118.00    122.48400    126.61400</span></span>
+<span id="cb2-360"><a href="#cb2-360" tabindex="-1"></a><span class="co">#&gt; 36               ultrasound_lowerext     97.16    100.85208    104.25268</span></span>
+<span id="cb2-361"><a href="#cb2-361" tabindex="-1"></a><span class="co">#&gt; 37              ultrasound_pregnancy     85.76     89.01888     92.02048</span></span>
+<span id="cb2-362"><a href="#cb2-362" tabindex="-1"></a><span class="co">#&gt; 38                 ultrasound_breast     95.80     99.44040    102.79340</span></span>
+<span id="cb2-363"><a href="#cb2-363" tabindex="-1"></a><span class="co">#&gt; 39           ultrasound_thyroid_neck     91.08     94.54104     97.72884</span></span>
+<span id="cb2-364"><a href="#cb2-364" tabindex="-1"></a><span class="co">#&gt; 40                         xray_exam     82.17     85.29246     88.16841</span></span>
+<span id="cb2-365"><a href="#cb2-365" tabindex="-1"></a><span class="co">#&gt; 41                 bp24h_measurement     86.78     90.07764     93.11494</span></span>
+<span id="cb2-366"><a href="#cb2-366" tabindex="-1"></a><span class="co">#&gt; 42                          crp_test      4.38      4.54644      4.69974</span></span>
+<span id="cb2-367"><a href="#cb2-367" tabindex="-1"></a><span class="co">#&gt; 43                        hba1c_test      4.52      4.69176      4.84996</span></span>
+<span id="cb2-368"><a href="#cb2-368" tabindex="-1"></a><span class="co">#&gt; 44                          tsh_test      4.14      4.29732      4.44222</span></span>
+<span id="cb2-369"><a href="#cb2-369" tabindex="-1"></a><span class="co">#&gt; 45                   creatinine_test      1.49      1.54662      1.59877</span></span>
+<span id="cb2-370"><a href="#cb2-370" tabindex="-1"></a><span class="co">#&gt; 46              creatinine_clearance      6.14      6.37332      6.58822</span></span>
+<span id="cb2-371"><a href="#cb2-371" tabindex="-1"></a><span class="co">#&gt; 47                         alat_test      1.74      1.80612      1.86702</span></span>
+<span id="cb2-372"><a href="#cb2-372" tabindex="-1"></a><span class="co">#&gt; 48                    prosthesis_arm   3540.00   3674.52000   3798.42000</span></span>
+<span id="cb2-373"><a href="#cb2-373" tabindex="-1"></a><span class="co">#&gt; 49                    prosthesis_leg   2790.00   2896.02000   2993.67000</span></span>
+<span id="cb2-374"><a href="#cb2-374" tabindex="-1"></a><span class="co">#&gt; 50                 aid_comm_physical   1550.00   1608.90000   1663.15000</span></span>
+<span id="cb2-375"><a href="#cb2-375" tabindex="-1"></a><span class="co">#&gt; 51                   aid_comm_visual   1230.00   1276.74000   1319.79000</span></span>
+<span id="cb2-376"><a href="#cb2-376" tabindex="-1"></a><span class="co">#&gt; 52                    aid_comm_other   1170.00   1214.46000   1255.41000</span></span>
+<span id="cb2-377"><a href="#cb2-377" tabindex="-1"></a><span class="co">#&gt; 53                aid_mobility_other   1040.00   1079.52000   1115.92000</span></span>
+<span id="cb2-378"><a href="#cb2-378" tabindex="-1"></a><span class="co">#&gt; 54                aid_diabetes_other    974.00   1011.01200   1045.10200</span></span>
+<span id="cb2-379"><a href="#cb2-379" tabindex="-1"></a><span class="co">#&gt; 55                 aid_armhandfinger    927.00    962.22600    994.67100</span></span>
+<span id="cb2-380"><a href="#cb2-380" tabindex="-1"></a><span class="co">#&gt; 56                 orthopaedic_shoes    889.00    922.78200    953.89700</span></span>
+<span id="cb2-381"><a href="#cb2-381" tabindex="-1"></a><span class="co">#&gt; 57              optical_aids_special    731.00    758.77800    784.36300</span></span>
+<span id="cb2-382"><a href="#cb2-382" tabindex="-1"></a><span class="co">#&gt; 58                    gp_consult_avg     30.87     32.04306     33.12351</span></span>
+<span id="cb2-383"><a href="#cb2-383" tabindex="-1"></a><span class="co">#&gt; 59                  gp_consult_short     28.74     29.83212     30.83802</span></span>
+<span id="cb2-384"><a href="#cb2-384" tabindex="-1"></a><span class="co">#&gt; 60                   gp_consult_long     42.47     44.08386     45.57031</span></span>
+<span id="cb2-385"><a href="#cb2-385" tabindex="-1"></a><span class="co">#&gt; 61                  gp_homevisit_avg     43.31     44.95578     46.47163</span></span>
+<span id="cb2-386"><a href="#cb2-386" tabindex="-1"></a><span class="co">#&gt; 62                gp_homevisit_short     36.72     38.11536     39.40056</span></span>
+<span id="cb2-387"><a href="#cb2-387" tabindex="-1"></a><span class="co">#&gt; 63                 gp_homevisit_long     48.21     50.04198     51.72933</span></span>
+<span id="cb2-388"><a href="#cb2-388" tabindex="-1"></a><span class="co">#&gt; 64             physiotherapy_session     38.89     40.36782     41.72897</span></span>
+<span id="cb2-389"><a href="#cb2-389" tabindex="-1"></a><span class="co">#&gt; 65          exercise_therapy_session     42.91     44.54058     46.04243</span></span>
+<span id="cb2-390"><a href="#cb2-390" tabindex="-1"></a><span class="co">#&gt; 66            speech_therapy_session     40.93     42.48534     43.91789</span></span>
+<span id="cb2-391"><a href="#cb2-391" tabindex="-1"></a><span class="co">#&gt; 67      occupational_therapy_session     24.32     25.24416     26.09536</span></span>
+<span id="cb2-392"><a href="#cb2-392" tabindex="-1"></a><span class="co">#&gt; 68               diet_advice_session     24.70     25.63860     26.50310</span></span>
+<span id="cb2-393"><a href="#cb2-393" tabindex="-1"></a><span class="co">#&gt; 69                     gli_programme    128.00    132.86400    137.34400</span></span>
+<span id="cb2-394"><a href="#cb2-394" tabindex="-1"></a><span class="co">#&gt; 70                   nursingcare_day    290.00    301.02000    311.17000</span></span>
+<span id="cb2-395"><a href="#cb2-395" tabindex="-1"></a><span class="co">#&gt; 71             dayactivities_halfday     83.29     86.45502     89.37017</span></span>
+<span id="cb2-396"><a href="#cb2-396" tabindex="-1"></a><span class="co">#&gt; 72               geriatric_rehab_avg    329.00    341.50200    353.01700</span></span>
+<span id="cb2-397"><a href="#cb2-397" tabindex="-1"></a><span class="co">#&gt; 73        geriatric_rehab_amputation    306.00    317.62800    328.33800</span></span>
+<span id="cb2-398"><a href="#cb2-398" tabindex="-1"></a><span class="co">#&gt; 74            geriatric_rehab_stroke    357.00    370.56600    383.06100</span></span>
+<span id="cb2-399"><a href="#cb2-399" tabindex="-1"></a><span class="co">#&gt; 75          geriatric_rehab_elective    360.00    373.68000    386.28000</span></span>
+<span id="cb2-400"><a href="#cb2-400" tabindex="-1"></a><span class="co">#&gt; 76            geriatric_rehab_trauma    331.00    343.57800    355.16300</span></span>
+<span id="cb2-401"><a href="#cb2-401" tabindex="-1"></a><span class="co">#&gt; 77             geriatric_rehab_other    311.00    322.81800    333.70300</span></span>
+<span id="cb2-402"><a href="#cb2-402" tabindex="-1"></a><span class="co">#&gt; 78                homecare_household     32.76     34.00488     35.15148</span></span>
+<span id="cb2-403"><a href="#cb2-403" tabindex="-1"></a><span class="co">#&gt; 79                 homecare_personal     57.58     59.76804     61.78334</span></span>
+<span id="cb2-404"><a href="#cb2-404" tabindex="-1"></a><span class="co">#&gt; 80            homecare_guidance_hour     64.00     66.43200     68.67200</span></span>
+<span id="cb2-405"><a href="#cb2-405" tabindex="-1"></a><span class="co">#&gt; 81             homecare_nursing_hour     75.00     77.85000     80.47500</span></span>
+<span id="cb2-406"><a href="#cb2-406" tabindex="-1"></a><span class="co">#&gt; 82           homecare_treatment_hour    138.00    143.24400    148.07400</span></span>
+<span id="cb2-407"><a href="#cb2-407" tabindex="-1"></a><span class="co">#&gt; 83                   homecare_travel     30.64     31.80432     32.87672</span></span>
+<span id="cb2-408"><a href="#cb2-408" tabindex="-1"></a><span class="co">#&gt; 84                pohggz_consult_avg     20.85     21.64230     22.37205</span></span>
+<span id="cb2-409"><a href="#cb2-409" tabindex="-1"></a><span class="co">#&gt; 85              pohggz_consult_short      9.31      9.66378      9.98963</span></span>
+<span id="cb2-410"><a href="#cb2-410" tabindex="-1"></a><span class="co">#&gt; 86               pohggz_consult_long     23.12     23.99856     24.80776</span></span>
+<span id="cb2-411"><a href="#cb2-411" tabindex="-1"></a><span class="co">#&gt; 87                   pohggz_home_avg     28.50     29.58300     30.58050</span></span>
+<span id="cb2-412"><a href="#cb2-412" tabindex="-1"></a><span class="co">#&gt; 88                 pohggz_home_short     17.34     17.99892     18.60582</span></span>
+<span id="cb2-413"><a href="#cb2-413" tabindex="-1"></a><span class="co">#&gt; 89                  pohggz_home_long     28.91     30.00858     31.02043</span></span>
+<span id="cb2-414"><a href="#cb2-414" tabindex="-1"></a><span class="co">#&gt; 90                      pohggz_group     11.56     11.99928     12.40388</span></span>
+<span id="cb2-415"><a href="#cb2-415" tabindex="-1"></a><span class="co">#&gt; 91                    mhc_socialwork    127.00    131.82600    136.27100</span></span>
+<span id="cb2-416"><a href="#cb2-416" tabindex="-1"></a><span class="co">#&gt; 92             mhc_basic_independent     98.61    102.35718    105.80853</span></span>
+<span id="cb2-417"><a href="#cb2-417" tabindex="-1"></a><span class="co">#&gt; 93             mhc_basic_institution    121.00    125.59800    129.83300</span></span>
+<span id="cb2-418"><a href="#cb2-418" tabindex="-1"></a><span class="co">#&gt; 94       mhc_specialised_independent    140.00    145.32000    150.22000</span></span>
+<span id="cb2-419"><a href="#cb2-419" tabindex="-1"></a><span class="co">#&gt; 95       mhc_specialised_institution    134.00    139.09200    143.78200</span></span>
+<span id="cb2-420"><a href="#cb2-420" tabindex="-1"></a><span class="co">#&gt; 96                      mhc_paaz_puk    148.00    153.62400    158.80400</span></span>
+<span id="cb2-421"><a href="#cb2-421" tabindex="-1"></a><span class="co">#&gt; 97           mhc_nursingday_psy_inst    327.00    339.42600    350.87100</span></span>
+<span id="cb2-422"><a href="#cb2-422" tabindex="-1"></a><span class="co">#&gt; 98           mhc_nursingday_paaz_puk    490.00    508.62000    525.77000</span></span>
+<span id="cb2-423"><a href="#cb2-423" tabindex="-1"></a><span class="co">#&gt; 99         mhc_dayactivities_halfday     22.81     23.67678     24.47513</span></span>
+<span id="cb2-424"><a href="#cb2-424" tabindex="-1"></a><span class="co">#&gt; 100                rehab_consult_all    371.00    385.09800    398.08300</span></span>
+<span id="cb2-425"><a href="#cb2-425" tabindex="-1"></a><span class="co">#&gt; 101           rehab_consult_children    497.00    515.88600    533.28100</span></span>
+<span id="cb2-426"><a href="#cb2-426" tabindex="-1"></a><span class="co">#&gt; 102             rehab_consult_adults    347.00    360.18600    372.33100</span></span>
+<span id="cb2-427"><a href="#cb2-427" tabindex="-1"></a><span class="co">#&gt; 103             rehab_nursingday_all    910.00    944.58000    976.43000</span></span>
+<span id="cb2-428"><a href="#cb2-428" tabindex="-1"></a><span class="co">#&gt; 104        rehab_nursingday_children   1368.00   1419.98400   1467.86400</span></span>
+<span id="cb2-429"><a href="#cb2-429" tabindex="-1"></a><span class="co">#&gt; 105          rehab_nursingday_adults    849.00    881.26200    910.97700</span></span>
+<span id="cb2-430"><a href="#cb2-430" tabindex="-1"></a><span class="co">#&gt; 106 disability_res_intellectual_incl    282.00    292.71600    302.58600</span></span>
+<span id="cb2-431"><a href="#cb2-431" tabindex="-1"></a><span class="co">#&gt; 107 disability_res_intellectual_excl    163.00    169.19400    174.89900</span></span>
+<span id="cb2-432"><a href="#cb2-432" tabindex="-1"></a><span class="co">#&gt; 108         disability_res_mild_incl    345.00    358.11000    370.18500</span></span>
+<span id="cb2-433"><a href="#cb2-433" tabindex="-1"></a><span class="co">#&gt; 109    disability_res_behaviour_incl    458.00    475.40400    491.43400</span></span>
+<span id="cb2-434"><a href="#cb2-434" tabindex="-1"></a><span class="co">#&gt; 110     disability_res_physical_incl    301.00    312.43800    322.97300</span></span>
+<span id="cb2-435"><a href="#cb2-435" tabindex="-1"></a><span class="co">#&gt; 111     disability_res_physical_excl    234.00    242.89200    251.08200</span></span>
+<span id="cb2-436"><a href="#cb2-436" tabindex="-1"></a><span class="co">#&gt; 112     disability_res_auditory_incl    429.00    445.30200    460.31700</span></span>
+<span id="cb2-437"><a href="#cb2-437" tabindex="-1"></a><span class="co">#&gt; 113     disability_res_auditory_excl    263.00    272.99400    282.19900</span></span>
+<span id="cb2-438"><a href="#cb2-438" tabindex="-1"></a><span class="co">#&gt; 114       disability_res_visual_incl    277.00    287.52600    297.22100</span></span>
+<span id="cb2-439"><a href="#cb2-439" tabindex="-1"></a><span class="co">#&gt; 115       disability_res_visual_excl    208.00    215.90400    223.18400</span></span>
+<span id="cb2-440"><a href="#cb2-440" tabindex="-1"></a><span class="co">#&gt; 116                     order_tariff      4.22      4.38036      4.52806</span></span>
+<span id="cb2-441"><a href="#cb2-441" tabindex="-1"></a><span class="co">#&gt; 117                 transport_car_km      0.26      0.26988      0.27898</span></span>
+<span id="cb2-442"><a href="#cb2-442" tabindex="-1"></a><span class="co">#&gt; 118            transport_car_parking      3.92      4.06896      4.20616</span></span>
+<span id="cb2-443"><a href="#cb2-443" tabindex="-1"></a><span class="co">#&gt; 119                  transport_pt_km      0.21      0.21798      0.22533</span></span>
+<span id="cb2-444"><a href="#cb2-444" tabindex="-1"></a><span class="co">#&gt; 120             transport_taxi_start      3.36      3.48768      3.60528</span></span>
+<span id="cb2-445"><a href="#cb2-445" tabindex="-1"></a><span class="co">#&gt; 121                transport_taxi_km      2.47      2.56386      2.65031</span></span>
+<span id="cb2-446"><a href="#cb2-446" tabindex="-1"></a><span class="co">#&gt; 122           timecost_informal_hour     18.80     19.51440     20.17240</span></span>
+<span id="cb2-447"><a href="#cb2-447" tabindex="-1"></a><span class="co">#&gt; 123               prodloss_paid_hour     39.88     41.39544     42.79124</span></span>
+<span id="cb2-448"><a href="#cb2-448" tabindex="-1"></a><span class="co">#&gt; 124             prodloss_unpaid_hour     18.80     19.51440     20.17240</span></span>
+<span id="cb2-449"><a href="#cb2-449" tabindex="-1"></a><span class="co">#&gt; 125                 edu_primary_year   9846.00  10220.14800  10564.75800</span></span>
+<span id="cb2-450"><a href="#cb2-450" tabindex="-1"></a><span class="co">#&gt; 126                  edu_primary_day     52.10     54.07980     55.90330</span></span>
+<span id="cb2-451"><a href="#cb2-451" tabindex="-1"></a><span class="co">#&gt; 127                 edu_primary_hour     10.47     10.86786     11.23431</span></span>
+<span id="cb2-452"><a href="#cb2-452" tabindex="-1"></a><span class="co">#&gt; 128               edu_secondary_year  14342.00  14886.99600  15388.96600</span></span>
+<span id="cb2-453"><a href="#cb2-453" tabindex="-1"></a><span class="co">#&gt; 129                edu_secondary_day     75.88     78.76344     81.41924</span></span>
+<span id="cb2-454"><a href="#cb2-454" tabindex="-1"></a><span class="co">#&gt; 130               edu_secondary_hour     15.26     15.83988     16.37398</span></span>
+<span id="cb2-455"><a href="#cb2-455" tabindex="-1"></a><span class="co">#&gt; 131              edu_vocational_year  19251.00  19982.53800  20656.32300</span></span>
+<span id="cb2-456"><a href="#cb2-456" tabindex="-1"></a><span class="co">#&gt; 132               edu_vocational_day    103.00    106.91400    110.51900</span></span>
+<span id="cb2-457"><a href="#cb2-457" tabindex="-1"></a><span class="co">#&gt; 133              edu_vocational_hour     20.77     21.55926     22.28621</span></span>
+<span id="cb2-458"><a href="#cb2-458" tabindex="-1"></a><span class="co">#&gt; 134              edu_higherprof_year  15963.00  16569.59400  17128.29900</span></span>
+<span id="cb2-459"><a href="#cb2-459" tabindex="-1"></a><span class="co">#&gt; 135               edu_higherprof_day     84.46     87.66948     90.62558</span></span>
+<span id="cb2-460"><a href="#cb2-460" tabindex="-1"></a><span class="co">#&gt; 136              edu_higherprof_hour     16.98     17.62524     18.21954</span></span>
+<span id="cb2-461"><a href="#cb2-461" tabindex="-1"></a><span class="co">#&gt; 137              edu_scientific_year  29735.00  30864.93000  31905.65500</span></span>
+<span id="cb2-462"><a href="#cb2-462" tabindex="-1"></a><span class="co">#&gt; 138               edu_scientific_day    157.33    163.30854    168.81509</span></span>
+<span id="cb2-463"><a href="#cb2-463" tabindex="-1"></a><span class="co">#&gt; 139              edu_scientific_hour     31.63     32.83194     33.93899</span></span>
+<span id="cb2-464"><a href="#cb2-464" tabindex="-1"></a><span class="co">#&gt; 140             edu_specialprim_year  15855.00  16457.49000  17012.41500</span></span>
+<span id="cb2-465"><a href="#cb2-465" tabindex="-1"></a><span class="co">#&gt; 141              edu_specialprim_day     83.89     87.07782     90.01397</span></span>
+<span id="cb2-466"><a href="#cb2-466" tabindex="-1"></a><span class="co">#&gt; 142             edu_specialprim_hour     16.87     17.51106     18.10151</span></span>
+<span id="cb2-467"><a href="#cb2-467" tabindex="-1"></a><span class="co">#&gt; 143        edu_tutoring_student_hour     15.00     15.57000     16.09500</span></span>
+<span id="cb2-468"><a href="#cb2-468" tabindex="-1"></a><span class="co">#&gt; 144        edu_tutoring_teacher_hour     30.00     31.14000     32.19000</span></span>
+<span id="cb2-469"><a href="#cb2-469" tabindex="-1"></a><span class="co">#&gt; 145                edu_remedial_hour     40.00     41.52000     42.92000</span></span>
+<span id="cb2-470"><a href="#cb2-470" tabindex="-1"></a><span class="co">#&gt; 146         justice_robbery_violence  13855.00  14381.49000  14866.41500</span></span>
+<span id="cb2-471"><a href="#cb2-471" tabindex="-1"></a><span class="co">#&gt; 147             justice_theft_simple   3147.00   3266.58600   3376.73100</span></span>
+<span id="cb2-472"><a href="#cb2-472" tabindex="-1"></a><span class="co">#&gt; 148             justice_stolen_goods    929.00    964.30200    996.81700</span></span>
+<span id="cb2-473"><a href="#cb2-473" tabindex="-1"></a><span class="co">#&gt; 149                justice_vandalism   8809.00   9143.74200   9452.05700</span></span>
+<span id="cb2-474"><a href="#cb2-474" tabindex="-1"></a><span class="co">#&gt; 150                 justice_disorder   3605.00   3741.99000   3868.16500</span></span>
+<span id="cb2-475"><a href="#cb2-475" tabindex="-1"></a><span class="co">#&gt; 151                    justice_arson  14627.00  15182.82600  15694.77100</span></span>
+<span id="cb2-476"><a href="#cb2-476" tabindex="-1"></a><span class="co">#&gt; 152               justice_cybercrime 106076.00 110106.88800 113819.54800</span></span>
+<span id="cb2-477"><a href="#cb2-477" tabindex="-1"></a><span class="co">#&gt; 153                  justice_assault  19927.00  20684.22600  21381.67100</span></span>
+<span id="cb2-478"><a href="#cb2-478" tabindex="-1"></a><span class="co">#&gt; 154                   justice_threat  23451.00  24342.13800  25162.92300</span></span>
+<span id="cb2-479"><a href="#cb2-479" tabindex="-1"></a><span class="co">#&gt; 155            justice_forced_sexual   4088.00   4243.34400   4386.42400</span></span>
+<span id="cb2-480"><a href="#cb2-480" tabindex="-1"></a><span class="co">#&gt; 156     justice_unauthorised_driving   7086.00   7355.26800   7603.27800</span></span>
+<span id="cb2-481"><a href="#cb2-481" tabindex="-1"></a><span class="co">#&gt; 157                      justice_dui   1424.00   1478.11200   1527.95200</span></span>
+<span id="cb2-482"><a href="#cb2-482" tabindex="-1"></a><span class="co">#&gt; 158           justice_sell_softdrugs   5612.00   5825.25600   6021.67600</span></span>
+<span id="cb2-483"><a href="#cb2-483" tabindex="-1"></a><span class="co">#&gt; 159           justice_sell_harddrugs  32335.00  33563.73000  34695.45500</span></span>
+<span id="cb2-484"><a href="#cb2-484" tabindex="-1"></a><span class="co">#&gt; 160          justice_firearm_offence  32333.00  33561.65400  34693.30900</span></span></code></pre></div>
+</div>
+<div id="specific-year-unit---single-value" class="section level3">
+<h3>2) Specific <strong>year</strong>* &amp; <strong>unit</strong> -&gt;
+single value</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">nl_ref_prices</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">unit =</span> <span class="st">&quot;Emergency care&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#&gt; 258</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; Price in 2022 per Emergency care</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; [1] 258</span></span></code></pre></div>
+</div>
+<div id="years-values-for-a-range-of-years" class="section level3">
+<h3>3) Years values for a range of years</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">nl_ref_prices</span>(<span class="at">year =</span> <span class="dv">2022</span><span class="sc">:</span><span class="dv">2024</span>, <span class="at">category =</span> <span class="st">&quot;Nursing&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 9 × 6</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;   Domain  Category Unit                                    short_var Year  Price</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;                                   &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; 1 Medical Nursing  Nursing day excluding personnel costs,… nursingd… 2022   537 </span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 2 Medical Nursing  Nursing day excluding personnel costs,… nursingd… 2023   557.</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 3 Medical Nursing  Nursing day excluding personnel costs,… nursingd… 2024   576.</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; 4 Medical Nursing  Nursing day including personnel costs,… nursingd… 2022   644 </span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; 5 Medical Nursing  Nursing day including personnel costs,… nursingd… 2023   668.</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; 6 Medical Nursing  Nursing day including personnel costs,… nursingd… 2024   691.</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; 7 Medical Nursing  Nursing day, intensive care (incl. dia… nursingd… 2022  2727 </span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; 8 Medical Nursing  Nursing day, intensive care (incl. dia… nursingd… 2023  2831.</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt; 9 Medical Nursing  Nursing day, intensive care (incl. dia… nursingd… 2024  2926.</span></span></code></pre></div>
+</div>
+<div id="multiple-selections-return-multiple-columns" class="section level3">
+<h3>4) Multiple selections return multiple columns</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># nl_ref_prices(</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#   year     = 2024,</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#   category = &quot;Nursing&quot;,</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#   unit     = c(&quot;Nursing day excluding personnel costs, hospital&quot;,</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#                &quot;Nursing day including personnel costs, hospital&quot;)</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co"># )</span></span></code></pre></div>
+</div>
+</div>
+<div id="error-messages-you-might-see" class="section level2">
+<h2>Error messages you might see</h2>
+<ul>
+<li><p><strong>“Year out of range …”</strong> You asked for a year
+outside the available year columns in <code>df_ref_prices</code>. Use a
+valid year or pass <code>&quot;all&quot;</code> for all years.</p></li>
+<li><p><strong>“For output =”value_label”, provide exactly one year and
+a single (category, unit) combination.”</strong> Single value mode needs
+exactly one year <strong>and</strong> one (<code>category</code>,
+<code>unit</code>) (and, if used, a single domain) so that exactly one
+row remains.</p></li>
+</ul>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
