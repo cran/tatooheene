@@ -12,7 +12,7 @@
 
 <meta name="author" content="The tatooheene team" />
 
-<meta name="date" content="2025-12-15" />
+<meta name="date" content="2026-10-13" />
 
 <title>Discounting with tatooheene</title>
 
@@ -50,8 +50,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -150,7 +151,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 div.csl-bib-body { }
 div.csl-entry {
 clear: both;
-margin-bottom: 0em;
 }
 .hanging div.csl-entry {
 margin-left:2em;
@@ -363,7 +363,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Discounting with tatooheene</h1>
 <h4 class="author">The tatooheene team</h4>
-<h4 class="date">2025-12-15</h4>
+<h4 class="date">2026-10-13</h4>
 
 
 <div id="TOC">
@@ -495,27 +495,27 @@ aggregated value can be rounded by providing the number of decimals to
 the <code>digitss</code> argument in the function.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># aggregate the values</span></span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">apply_discounting</span>(<span class="at">values =</span> v_c_SoC, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>))) <span class="co"># sum </span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; [1] 291.347</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">apply_discounting</span>(<span class="at">values =</span> v_c_SoC, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">aggregate =</span> <span class="cn">TRUE</span>) <span class="co"># aggregate TRUE</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; [1] 291.347</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co"># rounding </span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="fu">apply_discounting</span>(<span class="at">values =</span> v_c_SoC, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">digits =</span> <span class="dv">3</span>) <span class="co"># use 3 digits </span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt;  Year 1  Year 2  Year 3 </span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; 100.000  97.087  94.260</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">apply_discounting</span>(<span class="at">values =</span> v_c_SoC, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">aggregate =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="co"># round to 2 decimals </span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="co">#&gt; [1] 291.35</span></span></code></pre></div>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; [1] 291.347</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">apply_discounting</span>(<span class="at">values =</span> v_c_SoC, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">aggregate =</span> <span class="cn">TRUE</span>) <span class="co"># aggregate TRUE</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; [1] 291.347</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co"># rounding </span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="fu">apply_discounting</span>(<span class="at">values =</span> v_c_SoC, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">digits =</span> <span class="dv">3</span>) <span class="co"># use 3 digits </span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt;  Year 1  Year 2  Year 3 </span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt; 100.000  97.087  94.260</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="fu">apply_discounting</span>(<span class="at">values =</span> v_c_SoC, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">aggregate =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="dv">2</span>) <span class="co"># round to 2 decimals </span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt; [1] 291.35</span></span></code></pre></div>
 </div>
 <div id="example-for-discounting-a-single-value" class="section level3">
 <h3>Example for discounting a single value</h3>
 <p>To only discount a one-time costs of €150 euro at year 4, the
 function can be used as follows:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>c_PV_150 <span class="ot">&lt;-</span> <span class="fu">apply_discounting</span>(<span class="at">values =</span> <span class="dv">150</span>, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="dv">4</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Present Value of&quot;</span>, <span class="dv">150</span>, <span class="st">&quot; Euro in&quot;</span>, <span class="dv">4</span>, <span class="st">&quot;years at&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;% =&quot;</span>, <span class="fu">round</span>(c_PV_150, <span class="dv">2</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="co">#&gt; Present Value of 150  Euro in 4 years at 3 % = 133.27</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>c_PV_150 <span class="ot">&lt;-</span> <span class="fu">apply_discounting</span>(<span class="at">values =</span> <span class="dv">150</span>, <span class="at">discount_rate =</span> <span class="st">&quot;costs&quot;</span>, <span class="at">times =</span> <span class="dv">4</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Present Value of&quot;</span>, <span class="dv">150</span>, <span class="st">&quot; Euro in&quot;</span>, <span class="dv">4</span>, <span class="st">&quot;years at&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;% =&quot;</span>, <span class="fu">round</span>(c_PV_150, <span class="dv">2</span>), <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; Present Value of 150  Euro in 4 years at 3 % = 133.27</span></span></code></pre></div>
 <p>The function now returns the net present values of 150 euro after 4
 years time.</p>
 </div>
@@ -538,50 +538,50 @@ the monthly simulated model without discounting in the first year,
 followed by applying a step-wise discounting after this first year. In
 order to NOT discount the first year we replace the first 12 elements of
 the discount factor values with a zero.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># Use the annual model</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;data_model_output_sick_sicker&quot;</span>, <span class="at">package =</span> <span class="st">&quot;tatooheene&quot;</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>l_m_M_monthly <span class="ot">&lt;-</span> data_model_output_sick_sicker<span class="sc">$</span>l_m_M_monthly</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>l_u_monthly   <span class="ot">&lt;-</span> data_model_output_sick_sicker<span class="sc">$</span>l_u_monthly</span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="fu">head</span>(l_m_M_monthly[[<span class="st">&quot;Standard of care&quot;</span>]])</span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co">#&gt;           H         S1           S2            D</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#&gt; 0 1.0000000 0.00000000 0.0000000000 0.0000000000</span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co">#&gt; 1 0.9874132 0.01242013 0.0000000000 0.0001666528</span></span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co">#&gt; 2 0.9754915 0.02406295 0.0001081480 0.0003374164</span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="co">#&gt; 3 0.9641947 0.03497560 0.0003174955 0.0005121934</span></span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co">#&gt; 4 0.9534853 0.04520233 0.0006215159 0.0006908913</span></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co">#&gt; 5 0.9433278 0.05478473 0.0010140790 0.0008734227</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">tail</span>(l_m_M_monthly[[<span class="st">&quot;Standard of care&quot;</span>]]) </span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt;             H         S1        S2         D</span></span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt; 895 0.1334478 0.03455046 0.3114263 0.5205754</span></span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt; 896 0.1331774 0.03448046 0.3112086 0.5211336</span></span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt; 897 0.1329076 0.03441061 0.3109906 0.5216912</span></span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt; 898 0.1326383 0.03434089 0.3107723 0.5222485</span></span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt; 899 0.1323696 0.03427132 0.3105538 0.5228053</span></span>
-<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="co">#&gt; 900 0.1321014 0.03420189 0.3103351 0.5233616</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># here you see this file has more cycles compared to the annual model</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="co"># Apply the utilities for the monthly cycles </span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>v_Q_SoC_monthly <span class="ot">&lt;-</span> l_m_M_monthly[[<span class="st">&quot;Standard of care&quot;</span>]] <span class="sc">%*%</span> l_u_monthly[[<span class="st">&quot;Standard of care&quot;</span>]]</span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>n_undiscounted_Q_SoC_monthly <span class="ot">&lt;-</span> <span class="fu">sum</span>(v_Q_SoC_monthly) <span class="co"># get the undiscounted QALYs</span></span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>n_undiscounted_Q_SoC_monthly</span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="co">#&gt; [1] 44.43649</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a></span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="co"># Apply discounting without discounting in the first year </span></span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>cycle_length    <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">12</span> <span class="co"># cycle length in fraction of a year</span></span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>v_times_monthly <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> (<span class="fu">length</span>(v_Q_SoC_monthly) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> cycle_length, <span class="at">by =</span> cycle_length) </span>
-<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>v_times_monthly[<span class="dv">1</span><span class="sc">:</span>((<span class="dv">1</span><span class="sc">/</span>cycle_length))] <span class="ot">&lt;-</span> <span class="dv">0</span> </span>
-<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>v_times_monthly[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>] <span class="co"># print first twenty items to show times vector</span></span>
-<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="co">#&gt;  [1] 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</span></span>
-<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="co">#&gt;  [9] 0.000000 0.000000 0.000000 0.000000 1.000000 1.083333 1.166667 1.250000</span></span>
-<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="co">#&gt; [17] 1.333333 1.416667 1.500000 1.583333</span></span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>v_QALY_dis_Sick_Sicker_monthly <span class="ot">&lt;-</span> <span class="fu">apply_discounting</span>(<span class="at">values =</span> v_Q_SoC_monthly, <span class="at">discount_rate =</span> <span class="st">&quot;effects&quot;</span>, <span class="at">times =</span> v_times_monthly) <span class="co"># This gives the discounted QALYs</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>n_discounted_Q_SoC_monthly <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sum</span>(v_QALY_dis_Sick_Sicker_monthly), <span class="dv">3</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>n_discounted_Q_SoC_monthly</span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt; [1] 29.518</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Use the annual model</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;data_model_output_sick_sicker&quot;</span>, <span class="at">package =</span> <span class="st">&quot;tatooheene&quot;</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>l_m_M_monthly <span class="ot">&lt;-</span> data_model_output_sick_sicker<span class="sc">$</span>l_m_M_monthly</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>l_u_monthly   <span class="ot">&lt;-</span> data_model_output_sick_sicker<span class="sc">$</span>l_u_monthly</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="fu">head</span>(l_m_M_monthly[[<span class="st">&quot;Standard of care&quot;</span>]])</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt;           H         S1           S2            D</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; 0 1.0000000 0.00000000 0.0000000000 0.0000000000</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; 1 0.9874132 0.01242013 0.0000000000 0.0001666528</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt; 2 0.9754915 0.02406295 0.0001081480 0.0003374164</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt; 3 0.9641947 0.03497560 0.0003174955 0.0005121934</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt; 4 0.9534853 0.04520233 0.0006215159 0.0006908913</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">#&gt; 5 0.9433278 0.05478473 0.0010140790 0.0008734227</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="fu">tail</span>(l_m_M_monthly[[<span class="st">&quot;Standard of care&quot;</span>]]) </span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="co">#&gt;             H         S1        S2         D</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="co">#&gt; 895 0.1334478 0.03455046 0.3114263 0.5205754</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a><span class="co">#&gt; 896 0.1331774 0.03448046 0.3112086 0.5211336</span></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="co">#&gt; 897 0.1329076 0.03441061 0.3109906 0.5216912</span></span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a><span class="co">#&gt; 898 0.1326383 0.03434089 0.3107723 0.5222485</span></span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="co">#&gt; 899 0.1323696 0.03427132 0.3105538 0.5228053</span></span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="co">#&gt; 900 0.1321014 0.03420189 0.3103351 0.5233616</span></span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="co"># here you see this file has more cycles compared to the annual model</span></span>
+<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="co"># Apply the utilities for the monthly cycles </span></span>
+<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a>v_Q_SoC_monthly <span class="ot">&lt;-</span> l_m_M_monthly[[<span class="st">&quot;Standard of care&quot;</span>]] <span class="sc">%*%</span> l_u_monthly[[<span class="st">&quot;Standard of care&quot;</span>]]</span>
+<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a>n_undiscounted_Q_SoC_monthly <span class="ot">&lt;-</span> <span class="fu">sum</span>(v_Q_SoC_monthly) <span class="co"># get the undiscounted QALYs</span></span>
+<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a>n_undiscounted_Q_SoC_monthly</span>
+<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a><span class="co">#&gt; [1] 44.43649</span></span>
+<span id="cb7-30"><a href="#cb7-30" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" tabindex="-1"></a><span class="co"># Apply discounting without discounting in the first year </span></span>
+<span id="cb7-32"><a href="#cb7-32" tabindex="-1"></a>cycle_length    <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">12</span> <span class="co"># cycle length in fraction of a year</span></span>
+<span id="cb7-33"><a href="#cb7-33" tabindex="-1"></a>v_times_monthly <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> (<span class="fu">length</span>(v_Q_SoC_monthly) <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> cycle_length, <span class="at">by =</span> cycle_length) </span>
+<span id="cb7-34"><a href="#cb7-34" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" tabindex="-1"></a>v_times_monthly[<span class="dv">1</span><span class="sc">:</span>((<span class="dv">1</span><span class="sc">/</span>cycle_length))] <span class="ot">&lt;-</span> <span class="dv">0</span> </span>
+<span id="cb7-36"><a href="#cb7-36" tabindex="-1"></a>v_times_monthly[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>] <span class="co"># print first twenty items to show times vector</span></span>
+<span id="cb7-37"><a href="#cb7-37" tabindex="-1"></a><span class="co">#&gt;  [1] 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</span></span>
+<span id="cb7-38"><a href="#cb7-38" tabindex="-1"></a><span class="co">#&gt;  [9] 0.000000 0.000000 0.000000 0.000000 1.000000 1.083333 1.166667 1.250000</span></span>
+<span id="cb7-39"><a href="#cb7-39" tabindex="-1"></a><span class="co">#&gt; [17] 1.333333 1.416667 1.500000 1.583333</span></span>
+<span id="cb7-40"><a href="#cb7-40" tabindex="-1"></a></span>
+<span id="cb7-41"><a href="#cb7-41" tabindex="-1"></a>v_QALY_dis_Sick_Sicker_monthly <span class="ot">&lt;-</span> <span class="fu">apply_discounting</span>(<span class="at">values =</span> v_Q_SoC_monthly, <span class="at">discount_rate =</span> <span class="st">&quot;effects&quot;</span>, <span class="at">times =</span> v_times_monthly) <span class="co"># This gives the discounted QALYs</span></span>
+<span id="cb7-42"><a href="#cb7-42" tabindex="-1"></a>n_discounted_Q_SoC_monthly <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sum</span>(v_QALY_dis_Sick_Sicker_monthly), <span class="dv">3</span>)</span>
+<span id="cb7-43"><a href="#cb7-43" tabindex="-1"></a>n_discounted_Q_SoC_monthly</span>
+<span id="cb7-44"><a href="#cb7-44" tabindex="-1"></a><span class="co">#&gt; [1] 29.518</span></span></code></pre></div>
 </div>
 </div>
 <div id="practical-challenges-when-applying-discounting" class="section level2">
@@ -701,10 +701,9 @@ numeric values (vector)</li>
 1”)</strong><br />
 </li>
 </ul>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-YHEC_Discount_Rate" class="csl-entry">
-Consortium, York Health Economics. 2016. <span>“Discount Rate.”</span>
-<a href="https://www.yhec.co.uk/glossary-term/discount-rate/">https://www.yhec.co.uk/glossary-term/discount-rate/</a>.
+Consortium, York Health Economics. 2016. <em>Discount Rate</em>. <a href="https://www.yhec.co.uk/glossary-term/discount-rate/">https://www.yhec.co.uk/glossary-term/discount-rate/</a>.
 </div>
 <div id="ref-Degeling2025" class="csl-entry">
 Degeling, Koen, Jonathan Karnon, Michiel van de Ven, Alan Brennan, and
@@ -719,11 +718,10 @@ Misconceptions of Within-Cycle Correction: A Guide for Modelers and
 Decision Makers.”</span> <em>Pharmacoeconomics</em> 34 (1): 13–22. <a href="https://doi.org/10.1007/s40273-015-0337-0">https://doi.org/10.1007/s40273-015-0337-0</a>.
 </div>
 <div id="ref-SIEBERT2012812" class="csl-entry">
-Siebert, Uwe, Oguzhan Alagoz, Ahmed M. Bayoumi, Beate Jahn, Douglas K.
-Owens, David J. Cohen, and Karen M. Kuntz. 2012. <span>“State-Transition
-Modeling: A Report of the ISPOR-SMDM Modeling Good Research Practices
-Task Force-3.”</span> <em>Value in Health</em> 15 (6): 812–20.
-https://doi.org/<a href="https://doi.org/10.1016/j.jval.2012.06.014">https://doi.org/10.1016/j.jval.2012.06.014</a>.
+Siebert, Uwe, Oguzhan Alagoz, Ahmed M. Bayoumi, et al. 2012.
+<span>“State-Transition Modeling: A Report of the ISPOR-SMDM Modeling
+Good Research Practices Task Force-3.”</span> <em>Value in Health</em>
+15 (6): 812–20. https://doi.org/<a href="https://doi.org/10.1016/j.jval.2012.06.014">https://doi.org/10.1016/j.jval.2012.06.014</a>.
 </div>
 </div>
 </div>

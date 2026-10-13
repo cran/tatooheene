@@ -12,7 +12,7 @@
 
 <meta name="author" content="tatooheene team" />
 
-<meta name="date" content="2025-12-15" />
+<meta name="date" content="2026-10-13" />
 
 <title>Friction period: lookups in days/weeks (1-year vs 5-year average)</title>
 
@@ -50,8 +50,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -341,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">Friction period: lookups in days/weeks
 (1-year vs 5-year average)</h1>
 <h4 class="author">tatooheene team</h4>
-<h4 class="date">2025-12-15</h4>
+<h4 class="date">2026-10-13</h4>
 
 
 <div id="TOC">
@@ -414,7 +415,7 @@ value</strong>.</li>
 <h3>1) Default: all years, <strong>weeks</strong>, <strong>5‑year
 average</strong></h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>tatooheene<span class="sc">::</span><span class="fu">friction_period</span>()</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 27 × 2</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 29 × 2</span></span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;     Year `Friction period weeks average over 5 years`</span></span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt;    &lt;dbl&gt;                                        &lt;dbl&gt;</span></span>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt;  1  1997                                         NA  </span></span>
@@ -427,7 +428,7 @@ average</strong></h3>
 <span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  8  2004                                         13.7</span></span>
 <span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  9  2005                                         13.5</span></span>
 <span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; 10  2006                                         13.6</span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 17 more rows</span></span></code></pre></div>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 19 more rows</span></span></code></pre></div>
 </div>
 <div id="specific-year-weeks-5year-average-single-value" class="section level3">
 <h3>2) Specific year, <strong>weeks</strong>, <strong>5‑year

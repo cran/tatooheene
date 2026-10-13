@@ -65,17 +65,37 @@ nl_ref_prices <- function(
     year <- match.arg(as.character(year), year_choices, several.ok = TRUE)
   }
 
+  assertthat::assert_that(
+    is.character(domain), length(domain) > 0L, ! anyNA(domain),
+    all(domain %in% c("all", unique(df$Domain))),
+    msg = "Invalid domain: select available domains or 'all'"
+  )
+
+  assertthat::assert_that(
+    is.character(short_unit), length(short_unit) >0L, !anyNA(short_unit),
+    all(short_unit %in% c("all", unique(df$short_var))),
+    msg = "Invalid short_unit: select available short names or 'all'")
+
+
   possible_cat <- c("all", unique(df$Category))
-  category <- match.arg(category, possible_cat)
+  category <- match.arg(category, possible_cat, several.ok = TRUE)
 
   possible_unit <- c("all", unique(df$Unit))
-  unit <- match.arg(unit, possible_unit)
+  unit <- match.arg(unit, possible_unit, several.ok = TRUE)
 
   currency <- match.arg(currency)
 
   # If currency is INT$, change output
   if(currency == "INT$"){
     df_ppp <- tatooheene::nl_ppp()
+
+    required_years <- if(identical(year, "all")) year_cols else year
+    idx <- match(as.numeric(required_years), df_ppp$Year)
+    if(anyNA(idx)){
+      stop("PPP unavailable for year (s): ",
+           paste(required_years[is.na(idx)], collapse = ", "), call. = FALSE)
+    }
+
     df_ppp <- df_ppp |>
       dplyr::filter(as.numeric(Year) >= 2022) |>
       tidyr::pivot_wider(names_from = "Year", values_from = "PPP")
@@ -88,25 +108,25 @@ nl_ref_prices <- function(
   }
 
   # If specified, filter based on domain
-  if(domain != "all"){
+  if(!identical(domain, "all")){
     df <- df |>
       dplyr::filter(Domain %in% domain)
   }
 
   # If specified, filter based on category
-  if(category != "all"){
+  if(!identical(category, "all")){
     df <- df |>
       dplyr::filter(Category %in% category)
   }
 
   # If specified, filter based on unit
-  if(unit != "all"){
+  if(!identical(unit, "all")){
     df <- df |>
       dplyr::filter(Unit %in% unit)
   }
 
   # If specified, filter based on unit
-  if(short_unit != "all"){
+  if(!identical(short_unit, "all")){
     df <- df |>
       dplyr::filter(short_var %in% short_unit)
   }
@@ -123,7 +143,7 @@ nl_ref_prices <- function(
       dplyr::filter(Year %in% year)
 
     # In case of single result print label and number
-    if (nrow(df) == 1L && unit != "all") {
+    if (nrow(df) == 1L && !identical(unit, "all")) {
       value <- suppressWarnings(as.numeric(df$Price))
       label <- paste0("Price in ", df$Year, " per ", df$Unit)
       cat(value, "\n", label, "\n", sep = "")

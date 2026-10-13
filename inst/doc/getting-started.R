@@ -7,32 +7,32 @@ library(tatooheene)
 library(dplyr)
 
 ## ----setup, eval = FALSE------------------------------------------------------
-#  # CRAN
-#  install.packages("tatooheene")
+# # CRAN
+# install.packages("tatooheene")
 
 ## ----load, eval = FALSE-------------------------------------------------------
-#  # Load the package
-#  library(tatooheene)
-#  
-#  # We recommend using the tidyverse style
-#  library(tidyverse)
+# # Load the package
+# library(tatooheene)
+# 
+# # We recommend using the tidyverse style
+# library(tidyverse)
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  # Look up CPI indices with function nl_price_index()
-#  idx19_23 <- nl_price_index(
-#    start_year = 2019,
-#    end_year = 2023,
-#    output = "factor"  # see ?nl_price_index for available outputs
-#  )
-#  
-#  idx19_23
-#  
-#  # Example tibble
-#  costs <- tibble::tibble(item = c("GP consult", "MRI"), cost_2019 = c(34.5, 285))
-#  
-#  # Adjust costs to 2024 EUR using the CPI index
-#  costs |>
-#    mutate(cost_2024 = cost_2019 * idx19_23)
+# # Look up CPI indices with function nl_price_index()
+# idx19_23 <- nl_price_index(
+#   start_year = 2019,
+#   end_year = 2023,
+#   output = "factor"  # see ?nl_price_index for available outputs
+# )
+# 
+# idx19_23
+# 
+# # Example tibble
+# costs <- tibble::tibble(item = c("GP consult", "MRI"), cost_2019 = c(34.5, 285))
+# 
+# # Adjust costs to 2024 EUR using the CPI index
+# costs |>
+#   mutate(cost_2024 = cost_2019 * idx19_23)
 
 ## -----------------------------------------------------------------------------
 # Get the friction period for 2023

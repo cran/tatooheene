@@ -29,6 +29,7 @@ This function provides the Consumer Price Index (CPI) for a given year range bot
 # Get the CPI factor from 2013 to 2023
 nl_price_index(start_year = 2013, end_year = 2023, output = "factor")
 
+prod(nl_price_index(start_year = 2013, end_year = 2023, output = "table")$Factor)
 # Get the CPI table from 2013 to 2023
 nl_price_index(start_year = 2013, end_year = 2023, output = "table")
 

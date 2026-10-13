@@ -34,8 +34,10 @@ depreciation_interest(
 )
 
 ## ----errors, error=TRUE-------------------------------------------------------
+try({
 depreciation_interest(
   v_replace_val = 50000,
   r_salvage_val = -1
 )
+})
 

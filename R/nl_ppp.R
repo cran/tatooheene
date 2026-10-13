@@ -17,12 +17,22 @@ nl_ppp <- function(year = "all"){
   df <- tatooheene::df_ppp   # Read in the dataset
 
   # Select the specified years, or all years if not specified
-  if(year != "all"){
-    ppp <- df |>
-      dplyr::filter(Year %in% year) |>
-      dplyr::pull(PPP)
+  if(!identical(year, "all")){
+    year <- suppressWarnings(as.numeric(as.character(year)))
+    assertthat::assert_that(
+      length(year) > 0L, all(is.finite(year)), all(year == trunc(year)),
+      msg = "`year` must contain valid years")
 
-    return(ppp)
+    idx <- match(year, df$Year)
+    if(anyNA(idx)){
+      stop("PPP unavailable for year(s): ",
+           paste(unique(year[is.na(idx)]), collapse = ", "), call. = FALSE)
+    }
+
+    ppp <- df$PPP[idx]
+    assertthat::assert_that(all(is.finite(ppp)), all(ppp > 0),
+      msg = "PPP factors must be finite and positive")
+    return(unname(ppp))
 
   } else{
 

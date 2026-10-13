@@ -14,6 +14,7 @@
 #' # Get the CPI factor from 2013 to 2023
 #' nl_price_index(start_year = 2013, end_year = 2023, output = "factor")
 #'
+#' prod(nl_price_index(start_year = 2013, end_year = 2023, output = "table")$Factor)
 #' # Get the CPI table from 2013 to 2023
 #' nl_price_index(start_year = 2013, end_year = 2023, output = "table")
 #'
@@ -35,6 +36,10 @@ nl_price_index <- function(start_year = 2013,
   assertthat::assert_that(is.numeric(start_year), msg = "`start_year` must be numeric")
   assertthat::assert_that(is.numeric(end_year),   msg = "`end_year` must be numeric")
   assertthat::assert_that(start_year < end_year,  msg = "`start_year` must be smaller than `end_year`")
+  assertthat::assert_that(start_year >= min(df$`Year from`),
+                          end_year <= max(df$`Year to`),
+                          msg = "The requested years are outside the available CPI data")
+
   assertthat::assert_that(output %in% c("table", "factor"),
                           msg = "`output` must be one of 'table' or 'factor'")
 
@@ -70,12 +75,15 @@ nl_price_index <- function(start_year = 2013,
 
   # If the output is a factor:
   if(output == "factor"){
-    factor <- df |>
-      dplyr::filter(`Year from'` == start_year,
-                    `Year to'`   == end_year) |>
-      dplyr::pull(`Factor'`)
+    # Compound the year-on-year Factor across every consecutive pair between
+    # start_year and end_year (same row selection as the "table" branch, so
+    # the two outputs always stay consistent with each other).
+    factor_tbl <- df |>
+      dplyr::filter(`Year to` >= (start_year + 1) & `Year to` <= end_year)
 
-      return(factor)
+      factor <- prod(factor_tbl$Factor)
+
+      return(unname(factor))
 
     # If the output is a table:
   } else if(output == "table"){
@@ -86,4 +94,3 @@ nl_price_index <- function(start_year = 2013,
   }
 
 }
-
